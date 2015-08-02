@@ -1,0 +1,7 @@
+<div class="container">
+	<h1>All Events</h1>
+	<% @requests.each do |request| %>
+		<%= request.name %> | 
+		<%= link_to "Show Event", request_path(request) %>
+	<%= end %>
+</div>
