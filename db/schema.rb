@@ -11,12 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150802191638) do
+ActiveRecord::Schema.define(version: 20150802224112) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "requests", force: :cascade do |t|
+  create_table "events", force: :cascade do |t|
     t.string   "name"
     t.string   "location"
     t.integer  "people"
@@ -29,8 +29,8 @@ ActiveRecord::Schema.define(version: 20150802191638) do
     t.integer  "space_id"
   end
 
-  add_index "requests", ["space_id"], name: "index_requests_on_space_id", using: :btree
-  add_index "requests", ["user_id"], name: "index_requests_on_user_id", using: :btree
+  add_index "events", ["space_id"], name: "index_events_on_space_id", using: :btree
+  add_index "events", ["user_id"], name: "index_events_on_user_id", using: :btree
 
   create_table "spaces", force: :cascade do |t|
     t.string   "name"
@@ -64,7 +64,7 @@ ActiveRecord::Schema.define(version: 20150802191638) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
-  add_foreign_key "requests", "spaces"
-  add_foreign_key "requests", "users"
+  add_foreign_key "events", "spaces"
+  add_foreign_key "events", "users"
   add_foreign_key "spaces", "users"
 end

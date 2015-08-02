@@ -1,13 +1,14 @@
 Rails.application.routes.draw do
   devise_for :users do
-    resources :requests
+    resources :events
     resources :spaces
   end
 
-  resources :requests
+  resources :spaces
+  resources :events
 
   # resources :spaces do
-  #   resources :requests
+  #   resources :events
   # end
 
   # The priority is based upon order of creation: first created -> highest priority.

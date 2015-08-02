@@ -1,4 +1,4 @@
 class Space < ActiveRecord::Base
-  has_many :requests, dependent: :destroy
+  has_many :events, dependent: :destroy
   belongs_to :user
 end
