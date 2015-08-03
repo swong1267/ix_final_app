@@ -7,7 +7,10 @@ Rails.application.routes.draw do
     resources :spaces
   end
 
-  resources :spaces
+  resources :spaces do
+    resources :reviews
+  end
+  
   resources :events
 
   # resources :spaces do

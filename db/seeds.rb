@@ -6,6 +6,7 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+Review.delete_all
 Event.delete_all
 Space.delete_all
 User.delete_all
@@ -17,11 +18,15 @@ cam = User.create! email: "cam@cam.com", password: "12345678", password_confirma
 aobo = User.create! email: "aobo@aobo.com", password: "12345678", password_confirmation: "12345678"
 tim = User.create! email: "tim@tim.com", password: "12345678", password_confirmation: "12345678"
 
-Space.create! name: "Once", category: "Room", description: "hipster hostel", location: "Cape Town", price: 200, capacity: 40, user: ian
-Space.create! name: "iX House", category: "Building", description: "movie room with fat sacsl", location: "Cape Town", price: 100, capacity: 20, user: brian
-Space.create! name: "Knead", category: "Room", description: "delicious food", location: "Cape Town", price: 250, capacity: 50, user: erica
+ian_space = Space.create! name: "Once", category: "Room", description: "hipster hostel", location: "Cape Town", price: 200, capacity: 40, user: ian
+brian_space = Space.create! name: "iX House", category: "Building", description: "movie room with fat sacsl", location: "Cape Town", price: 100, capacity: 20, user: brian
+erica_space = Space.create! name: "Knead", category: "Room", description: "delicious food", location: "Cape Town", price: 250, capacity: 50, user: erica
 
 Event.create! name: "birthday party", location: "cape town", people: 20, category: "Gathering", description: "best friend's 21st", public: false, user: cam
 Event.create! name: "weekly pottery workshop", location: "cape town", people: 10, category: "Workshop/Class", description: "beginner's intro to pottery", public: true, user: aobo
 Event.create! name: "choreography", location: "cape town", people: 1, category: "Personal", description: "making dance for recital", public: false, user: tim
 Event.create! name: "local burning man", location: "joburg", people: 40, category: "Gathering", description: "bringing burning man to SA", public: false, user: brian
+
+Review.create! user: cam, space: ian_space, rating: 4, body: "meh"
+Review.create! user: aobo, space: erica_space, rating: 5, body: "ERICA I LOVE YOU", reply: "thanks"
+Review.create! user: tim, space: brian_space, rating: 4, body: "meh"
