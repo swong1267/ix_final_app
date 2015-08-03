@@ -11,10 +11,11 @@
 <body>
 
 <%= render 'layouts/header' %>
-
-
+<%= render 'layouts/nav' %>
+<%= render 'layouts/alerts' %>
+<p id="error"><%= flash[:error] %></p>
     
-  <%= yield %>
+<%= yield %>
 
 
 <%= render 'layouts/footer' %>
@@ -23,6 +24,7 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
   <script src="assets/js/retina.js"></script>
+
 
 </body>
 </html>
