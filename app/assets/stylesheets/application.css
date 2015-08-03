@@ -20,8 +20,15 @@
  *= require_self
  */
 #headerwrap {
-	padding-bottom: 200px;
+	padding-bottom: 180px;
 }
+
+p.inline {
+    display: inline;
+    padding: 0 10px 0 10px;
+}
+
+
 h2 {
 	color: white;
 	font-size: 35px;
@@ -66,6 +73,6 @@ h6 {
 	letter-spacing: 1px;
 }
 
-a {
-	color: black;
+#white {
+  margin-top: 60px;
 }

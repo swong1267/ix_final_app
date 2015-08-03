@@ -1,9 +1,14 @@
-<div class="container">
-	<h1>Available Spaces</h1>
-	<%= link_to "New Space", new_space_path %></br>
-	<% @spaces.each do |space| %>
-		<%= space.name %> | 
-		<%= link_to "Show Space", space_path(space) %>
-		</br>
-	<% end %>
-</div>
+<div id="white">
+	    <div class="container">
+	
+	    		<div class="col-lg-4 col-lg-offset-4 centered">
+					<h3>Available Spaces</h3>
+					<%= link_to "New Space", new_space_path %></br>
+					<% @spaces.each do |space| %>
+						<%= space.name %> | 
+						<%= link_to "Show Space", space_path(space) %>
+						</br>
+					<% end %>
+				</div>
+			</div>
+		</div>
