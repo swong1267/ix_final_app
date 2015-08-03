@@ -1,5 +1,9 @@
-<div class="container">
+<div id="white">
+	<div class="container">
+	    <div class="col-lg-4 col-lg-offset-4 centered">
 	<h1><%= @space.name %></h1>
+	</div>
+	<div class="col-lg-4 col-lg-offset-4">
 	<p>
 		<% if can_crud_space?(@space) %>
 			<%= link_to "Edit Space", edit_space_path(@space) %> | 
@@ -13,6 +17,29 @@
 	<p>Price: <%= @space.price %></p>
 	<p>Capacity: <%= @space.capacity %></p>
 
+<!-- Calendar -->
+</div>
+<div class="col-lg-10 col-lg-offset-1">
+<h1 id="month">
+	<%= link_to "<", date: @date.prev_month %> 
+	<%= @date.strftime("%B %Y") %>
+	<%= link_to ">", date: @date.next_month %></h2>
+<%= calendar @date do |date| %>
+	<%= date.day %>
+	<% if @events_by_date[date] %>
+		<ul class="entries">
+			<% @events_by_date[date].each do |event| %>
+			<li><%= link_to event.name, event %></li>
+			<% end %>
+		</ul>
+	<% end %>
+<% end %>
+</div>
+
+<div class="col-lg-4 col-lg-offset-4">
+
+<!-- Reviews -->
+
 	<h3>Reviews</h3>
 	<p>Leave a new review: </p>
 	<%= render 'reviews/form' %>
@@ -21,24 +48,10 @@
 		<%= review.user.email %>: <%= review.body %>
 	<% end %>
 
-</div>
 
-<div id="white">
-	<div class="container">
-	    <div class="col-lg-4 col-lg-offset-4 centered">
-				<h3><%= @space.name %></h3>
-				<p>	<% if can_crud_space?(@space) %>
-					<%= link_to "Edit Space", edit_space_path(@space) %> | 
-					<%= link_to "Delete Space", space_path(@space), method: :delete, data: { confirm: "Are you sure?" } %> | 
-					<% end %>
-					
-				</p>
-				<p>Category: <%= @space.category %></p>
-				<p>Description: <%= @space.description %></p>
-				<p>Location: <%= @space.location %></p>
-				<p>Price: <%= @space.price %></p>
-				<p>Capacity: <%= @space.capacity %></p>
+<br><br>
 
 				<%= link_to "Back", spaces_path %>
-		</div>
+	<br><br>
 	</div>
+</div>
