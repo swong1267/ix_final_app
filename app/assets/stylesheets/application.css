@@ -19,25 +19,42 @@
  *= require font-awesome
  *= require_self
  */
+#headerwrap {
+	padding-bottom: 200px;
+}
+h2 {
+	color: white;
+	font-size: 35px;
+}
+
+h6 {
+	color: white;
+	font-size: 20px;
+}
+
+.mt {
+  margin-top: 0px;
+  margin-bottom: 20px;
+}
 
 .navbar {
 	font-weight: 800;
 	font-size: 14px;
-	padding-top: 5px;
-	padding-bottom: 5px;
+	padding-top: 0px;
+	padding-bottom: 0px;
 }
 
 .navbar-inverse {
-	background: #2d2d2d;
+	background: rgba(0,0,0,0.8);
 	border-color: #2d2d2d;
 }
 
 .navbar-inverse .navbar-nav > .active > a {
-	background: #ff7878
+	background: #ff7878;
 }
 
 .navbar-inverse .navbar-brand {
-	color: #999999;
+	color: gray;
 	font-weight: bolder;
 	font-size: 22px;
 	letter-spacing: 1px;
@@ -47,4 +64,8 @@
 	color: #ff7878;
 	font-size: 22px;
 	letter-spacing: 1px;
+}
+
+a {
+	color: black;
 }
