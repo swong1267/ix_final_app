@@ -6,7 +6,7 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-Request.delete_all
+Event.delete_all
 Space.delete_all
 User.delete_all
 
@@ -21,6 +21,6 @@ Space.create! name: "Once", category: "gathering", description: "hipster hostel"
 Space.create! name: "iX House", category: "media room", description: "movie room with fat sacsl", location: "Cape Town", price: 100, capacity: 20, user: brian
 Space.create! name: "Knead", category: "gathering", description: "delicious food", location: "Cape Town", price: 250, capacity: 50, user: erica
 
-Request.create! name: "birthday party", people: 20, category: "party", description: "best friend's 21st", public: false, user: cam
-Request.create! name: "weekly pottery workshop", people: 10, category: "workshop", description: "beginner's intro to pottery", public: true, user: aobo
-Request.create! name: "choreography", people: 1, category: "single person", description: "making dance for recital", public: false, user: tim
+Event.create! name: "birthday party", location: "cape town", people: 20, category: "party", description: "best friend's 21st", public: false, user: cam
+Event.create! name: "weekly pottery workshop", location: "cape town", people: 10, category: "workshop", description: "beginner's intro to pottery", public: true, user: aobo
+Event.create! name: "choreography", location: "cape town", people: 1, category: "single person", description: "making dance for recital", public: false, user: tim

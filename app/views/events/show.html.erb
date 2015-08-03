@@ -1,5 +1,8 @@
 <div class="container">
 	<h1><%= @event.name %> Page</h1>
+	<p><%= link_to "Edit Event", edit_event_path(@event) %> | 
+	<%= link_to "Delete Event", event_path(@event), method: :delete, data: { confirm: "Are you sure?" } %> | 
+	<%= link_to "Back", events_path %></p>
 	<p>Location: <%= @event.location %></p>
 	<p>Number of People: <%= @event.people %></p>
 	<p>Category: <%= @event.category %></p>
