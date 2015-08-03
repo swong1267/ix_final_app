@@ -6,6 +6,7 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+Message.delete_all
 Review.delete_all
 Event.delete_all
 Space.delete_all
@@ -30,3 +31,7 @@ Event.create! name: "local burning man", location: "joburg", people: 40, categor
 Review.create! user: cam, space: ian_space, rating: 4, body: "meh"
 Review.create! user: aobo, space: erica_space, rating: 5, body: "ERICA I LOVE YOU", reply: "thanks"
 Review.create! user: tim, space: brian_space, rating: 4, body: "meh"
+
+Message.create! sender: ian, recipient: cam, body: "have a party"
+Message.create! sender: brian, recipient: tim, body: "you can dance at iX"
+Message.create! sender: erica, recipient: aobo, body: "stalker"

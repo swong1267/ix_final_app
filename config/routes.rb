@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   devise_for :users do
     resources :events
     resources :spaces
+    resources :messages
   end
 
   resources :spaces do
