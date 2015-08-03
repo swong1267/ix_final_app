@@ -10,6 +10,7 @@ Event.delete_all
 Space.delete_all
 User.delete_all
 
+
 ian = User.create! email: "ian@ian.com", password: "12345678", password_confirmation: "12345678"
 brian = User.create! email: "brian@brian.com", password: "12345678", password_confirmation: "12345678"
 erica = User.create! email: "erica@erica.com", password: "12345678", password_confirmation: "12345678"
