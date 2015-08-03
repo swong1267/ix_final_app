@@ -1,0 +1,14 @@
+<div class="container">
+	<h1>Inbox</h1>
+	<%= link_to "Send New Message", new_message_path %>	| 
+	<%= link_to "Sent Mail", sent_mail_messages_path %>
+	<% @messages.each do |message| %>
+		<% if message.recipient == current_user %>
+			<div class="row">
+				<div class="col-md-2"><%= message.sender.email %></div>
+				<div class="col-md-8"><%= link_to message.subject, message_path(message) %></div>
+				<div class="col-md-2"><%= message.created_at %></div>
+			</div>
+		<% end %>
+	<% end %>	
+</div>

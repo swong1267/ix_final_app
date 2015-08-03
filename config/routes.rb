@@ -12,6 +12,12 @@ Rails.application.routes.draw do
     resources :reviews
   end
   
+  resources :messages do
+    collection do
+      get :inbox
+      get :sent_mail
+    end
+  end
   resources :events
 
   # resources :spaces do
