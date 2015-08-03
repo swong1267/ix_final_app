@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 ruby "2.2.1"
 
+gem 'puma'
 gem 'devise'
 gem 'rails_12factor', group: :production
 gem 'twitter-bootstrap-rails'
