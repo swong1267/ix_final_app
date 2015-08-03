@@ -13,32 +13,32 @@
 <% end %>
 
 	<p>
-		<%= f.label :name %>
-		<%= f.text_field :name %>
+		<%= f.label :name %><br>
+		<%= f.text_field :name, :size => 40 %>
 	</p>
 
 	<p>
-		<%= f.label :location %>
-		<%= f.text_field :location %>
+		<%= f.label :location %><br>
+		<%= f.text_field :location, :size => 40 %>
 	</p>
 
 	<p>
-		<%= f.label :people, "Estimated Number of People" %>
-		<%= f.text_field :people %>
+		<%= f.label :people, "Estimated Number of People" %><br>
+		<%= f.text_field :people, :size => 40 %>
 	</p>
 
 	<p>
-		<%= f.label :category %>
+		<%= f.label :category %><br>
 		<%= f.select :category, ["Workshop/Class", "Gathering", "Meeting/Conference", "Performance", "Gallery", "Personal", "Other"] %>
 	</p>
 
 	<p>
-		<%= f.label :description %>
-		<%= f.text_area :description %>
+		<%= f.label :description %><br>
+		<%= f.text_area :description, :size => "40x4" %>
 	</p>
 
 	<p>
-		<%= f.radio_button :public, true  %> <%= f.label :public, "Public Event" %>
+		<%= f.radio_button :public, true  %> <%= f.label :public, "Public Event" %> <br>
   	
   <%= f.radio_button :public, false %> <%= f.label :public,  "Private Event" %>
   </p>

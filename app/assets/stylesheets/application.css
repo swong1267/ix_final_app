@@ -20,8 +20,15 @@
  *= require_self
  */
 #headerwrap {
-	padding-bottom: 200px;
+	padding-bottom: 180px;
 }
+
+p.inline {
+    display: inline;
+    padding: 0 10px 0 10px;
+}
+
+
 h2 {
 	color: white;
 	font-size: 35px;
@@ -46,11 +53,11 @@ h6 {
 
 .navbar-inverse {
 	background: rgba(0,0,0,0.8);
-	border-color: #2d2d2d;
+	border-color: #c23d35;
 }
 
 .navbar-inverse .navbar-nav > .active > a {
-	background: #ff7878;
+	background: #c23d35;
 }
 
 .navbar-inverse .navbar-brand {
@@ -61,11 +68,11 @@ h6 {
 }
 
 .navbar-inverse .navbar-brand i {
-	color: #ff7878;
+	color: #c23d35;
 	font-size: 22px;
 	letter-spacing: 1px;
 }
 
-a {
-	color: black;
+#white {
+  margin-top: 60px;
 }

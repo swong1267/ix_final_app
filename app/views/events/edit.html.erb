@@ -1,5 +1,11 @@
-<div class="container">
-	<h1>Edit Your Event</h1>
+<div id="white">
+	<div class="container">
+	    <div class="col-lg-4 col-lg-offset-4 centered">
+			<h1><b>Edit Your Event:</b> <%= @event.name %></h1>
+		</div>
+		<div class="col-lg-4 col-lg-offset-4">
 	<%= link_to "Back", events_path %></br>
 	<%= render 'form' %>
+</div>
+</div>
 </div>

@@ -13,34 +13,36 @@
   <% end %>
 
 	<p>
-		<%= f.label :name %>
-		<%= f.text_field :name %>
+		<%= f.label :name %><br>
+		<%= f.text_field :name, placeholder: "Pick a descriptive name for your space", :size => 40 %>
 	</p>
-
 	<p>
-		<%= f.label :category %>
+		<%= f.label :category %><br>
 		<%= f.select :category, ["Display", "Room", "Building", "Outdoor Area", "Other"] %>
 	</p>
-
 	<p>
-		<%= f.label :description %>
-		<%= f.text_area :description %>
+		<%= f.label :location %><br>
+		<%= f.text_field :location, :size => 40 %>
 	</p>
 
 	<p>
-		<%= f.label :location %>
-		<%= f.text_field :location %>
+		<%= f.label :price %><br>
+		<%= f.text_field :price, :size => 40 %>
 	</p>
 
 	<p>
-		<%= f.label :price %>
-		<%= f.text_field :price %>
+		<%= f.label :capacity %><br>
+		<%= f.text_field :capacity, :size => 40 %>
 	</p>
 
+	
+
 	<p>
-		<%= f.label :capacity %>
-		<%= f.text_field :capacity %>
+		<%= f.label :description %><br>
+		<%= f.text_area :description, size: "40x4" %>
 	</p>
+
+	
 		
 	<p>
 		<%= f.submit %>
