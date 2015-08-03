@@ -44,3 +44,14 @@ $('a[href*=#]:not([href=#])').click(function() {
       }
     }
 });
+
+
+$('.lnk').click(function(){
+  var lnk = $(this).data("src");
+  $('.modal-body').text('wait..');
+  $('.modal-body').load(lnk,function(){
+   
+    
+  });
+  
+})
