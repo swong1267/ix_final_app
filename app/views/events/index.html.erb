@@ -2,7 +2,9 @@
 	<h1>All Events</h1>
 	<%= link_to "New Event", new_event_path %></br>
 	<% @events.each do |event| %>
-		<%= event.name %> | 
-		<%= link_to "Show Event", event_path(event) %></br>
+		<% if event.public || event.user == current_user %> 
+			<%= event.name %> | 
+			<%= link_to "Show Event", event_path(event) %></br>
+		<% end %>
 	<% end %>
 </div>
