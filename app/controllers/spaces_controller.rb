@@ -40,7 +40,6 @@ class SpacesController < ApplicationController
     can_change_space @space
     @space.destroy
     redirect_to spaces_path
-
   end
 
   private

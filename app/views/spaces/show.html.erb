@@ -1,28 +1,3 @@
-<div class="container">
-	<h1><%= @space.name %></h1>
-	<p>
-		<% if can_crud_space?(@space) %>
-			<%= link_to "Edit Space", edit_space_path(@space) %> | 
-			<%= link_to "Delete Space", space_path(@space), method: :delete, data: { confirm: "Are you sure?" } %> | 
-		<% end %>
-		<%= link_to "Back", spaces_path %>
-	</p>
-	<p>Category: <%= @space.category %></p>
-	<p>Description: <%= @space.description %></p>
-	<p>Location: <%= @space.location %></p>
-	<p>Price: <%= @space.price %></p>
-	<p>Capacity: <%= @space.capacity %></p>
-
-	<h3>Reviews</h3>
-	<p>Leave a new review: </p>
-	<%= render 'reviews/form' %>
-
-	<% @space.reviews.each do |review| %>
-		<%= review.user.email %>: <%= review.body %>
-	<% end %>
-
-</div>
-
 <div id="white">
 	<div class="container">
 	    <div class="col-lg-4 col-lg-offset-4 centered">
@@ -38,6 +13,17 @@
 				<p>Location: <%= @space.location %></p>
 				<p>Price: <%= @space.price %></p>
 				<p>Capacity: <%= @space.capacity %></p>
+
+				<h3>Reviews</h3>
+
+				<% @space.reviews.each do |review| %>
+					<%= review.user.email %>: <%= review.body %></br>
+				<% end %>
+				
+				<% if !owns_space?(@space) %>
+					<p>Leave a new review: </p>
+					<%= render 'reviews/form' %>
+				<% end %>
 
 				<%= link_to "Back", spaces_path %>
 		</div>
