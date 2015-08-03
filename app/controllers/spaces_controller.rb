@@ -13,6 +13,7 @@ class SpacesController < ApplicationController
 
   def edit
     @space = Space.find(params[:id])
+    can_change_space @space
   end
 
   def create
@@ -35,8 +36,10 @@ class SpacesController < ApplicationController
 
   def destroy
     @space = Space.find(params[:id])
+    can_change_space @space
     @space.destroy
     redirect_to spaces_path
+
   end
 
   private
@@ -44,4 +47,12 @@ class SpacesController < ApplicationController
   def space_params
     params.require(:space).permit(:name, :category, :description, :location, :price, :capacity)
   end
+
+  def can_change_space(space)
+    if space.user != current_user
+      flash[:error] = "Insufficient permissions"
+      redirect_to spaces_path
+    end
+  end
+
 end
