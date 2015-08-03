@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150802224112) do
+ActiveRecord::Schema.define(version: 20150803152739) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,6 +31,19 @@ ActiveRecord::Schema.define(version: 20150802224112) do
 
   add_index "events", ["space_id"], name: "index_events_on_space_id", using: :btree
   add_index "events", ["user_id"], name: "index_events_on_user_id", using: :btree
+
+  create_table "reviews", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "space_id"
+    t.integer  "rating"
+    t.string   "body"
+    t.string   "reply"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "reviews", ["space_id"], name: "index_reviews_on_space_id", using: :btree
+  add_index "reviews", ["user_id"], name: "index_reviews_on_user_id", using: :btree
 
   create_table "spaces", force: :cascade do |t|
     t.string   "name"
@@ -66,5 +79,7 @@ ActiveRecord::Schema.define(version: 20150802224112) do
 
   add_foreign_key "events", "spaces"
   add_foreign_key "events", "users"
+  add_foreign_key "reviews", "spaces"
+  add_foreign_key "reviews", "users"
   add_foreign_key "spaces", "users"
 end

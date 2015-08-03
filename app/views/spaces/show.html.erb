@@ -12,4 +12,13 @@
 	<p>Location: <%= @space.location %></p>
 	<p>Price: <%= @space.price %></p>
 	<p>Capacity: <%= @space.capacity %></p>
+
+	<h3>Reviews</h3>
+	<p>Leave a new review: </p>
+	<%= render 'reviews/form' %>
+
+	<% @space.reviews.each do |review| %>
+		<%= review.user.email %>: <%= review.body %>
+	<% end %>
+
 </div>
