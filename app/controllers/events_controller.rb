@@ -36,6 +36,7 @@ class EventsController < ApplicationController
 
   def destroy
     @event = Event.find(params[:id])
+    can_change_event @event
     @event.destroy
     redirect_to events_path
   end
