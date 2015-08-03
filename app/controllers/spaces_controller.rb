@@ -54,5 +54,4 @@ class SpacesController < ApplicationController
       redirect_to spaces_path
     end
   end
-
 end

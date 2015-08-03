@@ -11,11 +11,22 @@ class ReviewsController < ApplicationController
   end
 
   def destroy
+    @review = Review.find(params[:id])
+    can_change_review @review
+    @review.destroy
+    redirect_to space_path(@review.space)
   end
 
   private
   
   def review_params
     params.require(:review).permit(:rating, :body)
+  end
+
+  def can_change_review(review)
+    if review.user != current_user
+      flash[:error] = "Insufficient permissions"
+      redirect_to space_path(review.space)
+    end
   end
 end
