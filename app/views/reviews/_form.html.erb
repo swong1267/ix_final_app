@@ -1,7 +1,7 @@
 <%= form_for ([@space, @review]) do |f| %>
 	
 	<p><%= f.label :rating %>
-	<%= f.text_field :rating %>
+	<%= f.select :rating, (1..5) %>
 	</p>
 
 	<p><%= f.label :body %>
