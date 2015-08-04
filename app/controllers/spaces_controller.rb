@@ -48,16 +48,6 @@ class SpacesController < ApplicationController
     redirect_to spaces_path
   end
 
-  def add_event_to_space
-    @spaces = current_user.spaces
-    @events = Event.all
-  end
-
-  def link_event_to_space
-    @spaces = current_user.spaces
-    @events = Event.all
-  end
-
   private
 
   def space_params
