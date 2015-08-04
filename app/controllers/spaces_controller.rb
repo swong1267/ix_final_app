@@ -1,7 +1,6 @@
 class SpacesController < ApplicationController
   def index
     @spaces = Space.all
-
   end
 
   def show
@@ -47,6 +46,9 @@ class SpacesController < ApplicationController
     can_change_object? @space
     @space.destroy
     redirect_to spaces_path
+  end
+
+  def add_event_to_space
   end
 
   private
