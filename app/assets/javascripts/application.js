@@ -44,14 +44,3 @@ $('a[href*=#]:not([href=#])').click(function() {
       }
     }
 });
-
-var frameSrc = "layout/calendar";
-
-$('#openBtn').click(function(){
-    $('#myModal').on('show', function () {
-
-        $('iframe').attr("src",frameSrc);
-      
-  });
-    $('#myModal').modal({show:true})
-});
