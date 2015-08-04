@@ -1,8 +1,6 @@
 Rails.application.routes.draw do
 
   get 'welcome/index'
-  get 'spaces/add_event' => 'space#add_event_to_space'
-
 
   devise_for :users do
     resources :events
