@@ -49,6 +49,13 @@ class SpacesController < ApplicationController
   end
 
   def add_event_to_space
+    @spaces = current_user.spaces
+    @events = Event.all
+  end
+
+  def link_event_to_space
+    @spaces = current_user.spaces
+    @events = Event.all
   end
 
   private
