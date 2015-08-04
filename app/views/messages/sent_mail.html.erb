@@ -1,4 +1,6 @@
-<div class="container">
+<div id="white">
+	<div class="container">
+	    <div class="col-lg-4 col-lg-offset-4 centered">
 	<h1>Sent Mail</h1>
 	<% @messages.each do |message| %>
 		<% if message.sender == current_user %>
@@ -10,4 +12,7 @@
 		<% end %>
 	<% end %>	
 	<%= link_to "Back", inbox_messages_path %>
+	<br><br>
+</div>
+</div>
 </div>

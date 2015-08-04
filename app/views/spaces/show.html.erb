@@ -11,7 +11,7 @@
 			<%= link_to "Edit Space", edit_space_path(@space) %> | 
 			<%= link_to "Delete Space", space_path(@space), method: :delete, data: { confirm: "Are you sure?" } %> | 
 		<% end %>
-		<%= link_to "Back", spaces_path %>
+
 	</p>
 	<p>Category: <%= @space.category %></p>
 	<p>Description: <%= @space.description %></p>
@@ -99,5 +99,8 @@ See Availability: <br>
 					<p>Leave a new review: </p>
 					<%= render 'reviews/form' %>
 				<% end %>
+
+			<br>
+			<br>
 	</div>
 </div>

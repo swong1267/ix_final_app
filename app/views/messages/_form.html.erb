@@ -1,12 +1,16 @@
 <%= form_for @message do |f| %>
-	<p><%= f.label "Send to:" %>
+	<p><%= f.label "Send to:" %> <br>
 	<%= f.text_field :recipient, value: (@message.new_record? ? params[:recipient] : @message.recipient) %></p>
 	
-	<p><%= f.label :subject %>
+	<p><%= f.label :subject %><br>
 	<%= f.text_field :subject %></p>
 	
-	<p><%= f.label :body %>
+	<p><%= f.label :body %><br>
 	<%= f.text_area :body %></p>
 
 	<%= f.submit %>
+	<br><br>
+	
+	<%= link_to "Back", messages_path %>
+
 <% end %>
