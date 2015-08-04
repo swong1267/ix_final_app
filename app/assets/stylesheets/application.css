@@ -12,11 +12,11 @@
  *
  *= require bootstrap/glyphicons
  *= require hover_pack
- *= require_tree .
  *= require theme-main
  *= require colors/color-74c9be
  *= require animations
  *= require font-awesome
+ *= require_tree .
  *= require_self
  */
 #headerwrap {
