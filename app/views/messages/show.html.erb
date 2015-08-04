@@ -5,6 +5,7 @@
 	<h4>Sender: <%= @message.sender.email %></h4>
 	<h5>Sent at: <%= @message.created_at %></h5>
 	<p><%= @message.body %></p>
+	<%= link_to "Reply", new_message_path(recipient: @message.sender.email) %> | 
 	<%= link_to "Delete Message", message_path(@message), method: :delete, data: { confirm: "Are you sure? " } %> | 
 	<% if received_message? @message %>
 		<%= link_to "Back", inbox_messages_path %>
