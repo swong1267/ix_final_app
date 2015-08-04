@@ -1,6 +1,6 @@
 <%= form_for @message do |f| %>
-	<p><%= f.label :recipient, "Send to:" %>
-	<%= f.text_field :recipient %></p>
+	<p><%= f.label "Send to:" %>
+	<%= f.text_field :recipient, value: (@message.new_record? ? params[:recipient] : @message.recipient) %></p>
 	
 	<p><%= f.label :subject %>
 	<%= f.text_field :subject %></p>

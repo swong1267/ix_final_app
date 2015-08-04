@@ -13,7 +13,7 @@ class EventsController < ApplicationController
 
   def edit
     @event = Event.find(params[:id])
-    can_change_event @event
+    can_change_object? @event
   end
 
   def create
@@ -36,22 +36,14 @@ class EventsController < ApplicationController
 
   def destroy
     @event = Event.find(params[:id])
-    can_change_event @event
+    can_change_object? @event
     @event.destroy
     redirect_to events_path
   end
 
   private
-
     def event_params
       params.require(:event).permit(:name, :location, :people, :category, :description, :public)
-    end
-
-    def can_change_event event
-      if event.user != current_user
-        flash[:error] = "Insufficient permissions"
-        redirect_to events_path
-      end
     end
 end
 

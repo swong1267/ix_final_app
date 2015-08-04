@@ -2,6 +2,8 @@
 	<div class="container">
 	    <div class="col-lg-4 col-lg-offset-4 centered">
 				<h3><%= @space.name %></h3>
+				<h5>Space Owner: <%= @space.user.email %></h3>
+
 				<p>	<% if can_crud_space?(@space) %>
 					<%= link_to "Edit Space", edit_space_path(@space) %> | 
 					<%= link_to "Delete Space", space_path(@space), method: :delete, data: { confirm: "Are you sure?" } %>

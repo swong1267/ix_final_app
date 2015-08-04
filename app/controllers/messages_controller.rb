@@ -8,13 +8,12 @@ class MessagesController < ApplicationController
   end
 
   def new
-    @message = Message.new
+    @message = Message.new recipient: User.find_by(email: params[:recipient])
   end
 
   def create
-    @message = Message.create subject: message_params[:subject], body: message_params[:body]
-    @message.recipient = User.find_by(email: message_params[:recipient])
-    @message.sender = current_user
+    user = User.find_by(email: message_params[:recipient])
+    @message = Message.create subject: message_params[:subject], body: message_params[:body], recipient: user, sender: current_user
     if @message.save
       redirect_to inbox_messages_path
     else
