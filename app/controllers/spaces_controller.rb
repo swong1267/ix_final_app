@@ -1,10 +1,14 @@
 class SpacesController < ApplicationController
   def index
     @spaces = Space.all
+
   end
 
   def show
     @space = Space.find(params[:id])
+    @events = @space.events.all
+    @events_by_date = @events.group_by(&:date)
+    @date = params[:date] ? Date.parse(params[:date]) : Date.today
     @review = Review.new
   end
 
@@ -20,6 +24,8 @@ class SpacesController < ApplicationController
 
   def create
     @space = current_user.spaces.build(space_params)
+    @space.date = Date.today
+
     if @space.save
       redirect_to space_path(@space)
     else

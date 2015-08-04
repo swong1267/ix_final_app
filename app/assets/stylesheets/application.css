@@ -76,3 +76,23 @@ h6 {
 #white {
   margin-top: 60px;
 }
+
+.modal-content {
+	width: 800px;
+	text-align: center;
+}
+
+.modal-body {
+	text-align: center;
+}
+
+.modal-dialog {
+	text-align: center;
+	  margin: 10px auto;
+}
+
+
+.modal {
+
+  right: 200px;
+}

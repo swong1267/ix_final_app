@@ -1,24 +1,91 @@
 <div id="white">
 	<div class="container">
 	    <div class="col-lg-4 col-lg-offset-4 centered">
-				<h3><%= @space.name %></h3>
-				<h5>Space Owner: <%= @space.user.email %></h3>
+	<h1><%= @space.name %></h1>
+	<h5>Space Owner: <%= @space.user.email %></h3>
 
-				<p>	<% if can_crud_space?(@space) %>
-					<%= link_to "Edit Space", edit_space_path(@space) %> | 
-					<%= link_to "Delete Space", space_path(@space), method: :delete, data: { confirm: "Are you sure?" } %>
+	</div>
+	<div class="col-lg-4 col-lg-offset-4">
+	<p>
+		<% if can_crud_space?(@space) %>
+			<%= link_to "Edit Space", edit_space_path(@space) %> | 
+			<%= link_to "Delete Space", space_path(@space), method: :delete, data: { confirm: "Are you sure?" } %> | 
+		<% end %>
+		<%= link_to "Back", spaces_path %>
+	</p>
+	<p>Category: <%= @space.category %></p>
+	<p>Description: <%= @space.description %></p>
+	<p>Location: <%= @space.location %></p>
+	<p>Price: <%= @space.price %></p>
+	<p>Capacity: <%= @space.capacity %></p>
+
+<!-- Calendar -->
+</div>
+
+
+<!-- modal -->
+
+
+<div class="col-lg-10 col-lg-offset-1 centered">
+
+<!-- Trigger the modal with a button -->
+See Availability: <br>
+<button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">Open Calendar</button>
+
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title"><h1 id="month">
+					<%= link_to "<", date: @date.prev_month %> 
+					<%= @date.strftime("%B %Y") %>
+					<%= link_to ">", date: @date.next_month %></h1></h4>
+      </div>
+      <div class="modal-body">
+        
+			<!-- <div class="col-lg-10 col-lg-offset-1"> -->
+				
+				<%= calendar @date do |date| %>
+					<%= date.day %>
+					<% if @events_by_date[date] %>
+						<ul class="entries">
+							<% @events_by_date[date].each do |event| %>
+							<li><%= link_to truncate(event.name, :length => 15), event %></li>
+							<% end %>
+						</ul>
 					<% end %>
-					
-				</p>
-				<p>Category: <%= @space.category %></p>
-				<p>Description: <%= @space.description %></p>
-				<p>Location: <%= @space.location %></p>
-				<p>Price: <%= @space.price %></p>
-				<p>Capacity: <%= @space.capacity %></p>
+				<% end %>
+			<!-- 	</div> -->
+
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+
+<!-- end modal -->
+</div>
+
+
+<div class="col-lg-4 col-lg-offset-4">
+
+<!-- Reviews -->
+
 
 				<%= link_to "Back", spaces_path %>
-
-				<h3>Reviews</h3>
+	<br>
+		<h3>Reviews</h3>
 
 				<% @space.reviews.each do |review| %>
 					<%= review.user.email %>: <%= review.body %>
@@ -32,5 +99,5 @@
 					<p>Leave a new review: </p>
 					<%= render 'reviews/form' %>
 				<% end %>
-		</div>
 	</div>
+</div>
