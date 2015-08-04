@@ -1,0 +1,14 @@
+<%= form_for ([@space, @inquiry]) do |f| %>
+	<p>
+		<%= f.label "Pick the event: " %>
+		<%= f.select :event, @events %>
+	</p>
+
+	<p>
+		<%= f.label "Request: " %>
+		<%= f.text_area :body %>
+	</p>
+
+	<%= f.submit %>
+
+<% end %>

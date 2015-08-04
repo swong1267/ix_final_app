@@ -34,11 +34,10 @@ Review.create! user: cam, space: ian_space, rating: 4, body: "meh"
 Review.create! user: aobo, space: erica_space, rating: 5, body: "ERICA I LOVE YOU", reply: "thanks"
 Review.create! user: tim, space: brian_space, rating: 4, body: "meh"
 
-
 Message.create! sender: ian, recipient: cam, body: "have a party", subject: "rent my space"
 Message.create! sender: brian, recipient: tim, body: "you can dance at iX", subject: "dance room 4 u"
 Message.create! sender: erica, recipient: aobo, body: "stalker", subject: "stop"
 
 Inquiry.create!  space: ian_space, event: cam_event, body: "help"
-Inquiry.create!  space: brian_space, event: aobo_event, body: "help"
-Inquiry.create!  space: erica_space, event: tim_event, body: "help"
+Inquiry.create!  space: brian_space, event: aobo_event, body: "me"
+Inquiry.create!  space: erica_space, event: tim_event, body: "please"

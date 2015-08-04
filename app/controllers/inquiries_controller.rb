@@ -1,18 +1,26 @@
 class InquiriesController < ApplicationController
   def index
-    @inquiries = Inquiries.all
+    @inquiries = Inquiry.all
   end
 
   def new
     @inquiry = Inquiry.new
+    @events = Event.all.map do |event|
+      event.name
+    end
+    @space = Space.find(params[:space_id])
   end
 
   def create
     @space = Space.find(params[:space_id])
-    @event = Event.find_by(name: params[:event_name])
-    @inquiry = @space.inquiries.build(inquiry_params)
-    if @inquiry.save
+    @event = Event.find_by(name: params[:inquiry][:event])
+    @inquiry = Inquiry.create event: @event, body: inquiry_params[:body], space: @space
+
+    if @event.user != current_user
+      flash[:error] = "That's not your event!"
       redirect_to space_path(@space)
+    elsif @inquiry.save
+      redirect_to space_path(@inquiry.space)
     else
       render 'new'
     end

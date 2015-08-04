@@ -1,0 +1,33 @@
+<div class="container">
+	<h1>Requests</h1>
+
+	<h3>Requests for my spaces:</h3>
+
+	<div class="row">
+		<div class="col-md-2">Sent from:</div>
+		<div class="col-md-10">Request:</div>
+	</div>
+	<% @inquiries.each do |inquiry| %>
+		<% if current_user.spaces.include? inquiry.space  %>
+			<div class="row">
+				<div class="col-md-2"><%= inquiry.event.user.email %></div>
+				<div class="col-md-10"><%= inquiry.body %></div>
+			</div>
+		<% end %>
+	<% end %>
+
+	<h3>My requests for spaces:</h3>
+
+	<div class="row">
+		<div class="col-md-2">Sent to:</div>
+		<div class="col-md-10">Request:</div>
+	</div>
+	<% @inquiries.each do |inquiry| %>
+		<% if inquiry.event.user == current_user  %>
+			<div class="row">
+				<div class="col-md-2"><%= inquiry.space.user.email %></div>
+				<div class="col-md-10"><%= inquiry.body %></div>
+			</div>
+		<% end %>
+	<% end %>
+</div>

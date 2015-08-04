@@ -10,7 +10,10 @@ Rails.application.routes.draw do
 
   resources :spaces do
     resources :reviews
+    resources :inquiries
   end
+
+  # resources :inquiries
   
   resources :messages do
     collection do
@@ -18,7 +21,9 @@ Rails.application.routes.draw do
       get :sent_mail
     end
   end
+
   resources :events
+  resources :inquiries
 
   # resources :spaces do
   #   resources :events

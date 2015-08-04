@@ -9,7 +9,7 @@
 	<p>
 		<% if can_crud_space?(@space) %>
 			<%= link_to "Edit Space", edit_space_path(@space) %> | 
-			<%= link_to "Delete Space", space_path(@space), method: :delete, data: { confirm: "Are you sure?" } %> | 
+			<%= link_to "Delete Space", space_path(@space), method: :delete, data: { confirm: "Are you sure?" } %> 
 		<% end %>
 
 	</p>
@@ -72,18 +72,15 @@ See Availability: <br>
   </div>
 </div>
 
-
-
 <!-- end modal -->
 </div>
 
+<h5>Request space for: <%= link_to "Existing Event", new_space_inquiry_path(@space) %></h5>
 
 <div class="col-lg-4 col-lg-offset-4">
 
 <!-- Reviews -->
-
-
-				<%= link_to "Back", spaces_path %>
+	<%= link_to "Back", spaces_path %>
 	<br>
 		<h3>Reviews</h3>
 
