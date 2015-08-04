@@ -45,13 +45,13 @@ $('a[href*=#]:not([href=#])').click(function() {
     }
 });
 
+var frameSrc = "layout/calendar";
 
-$('.lnk').click(function(){
-  var lnk = $(this).data("src");
-  $('.modal-body').text('wait..');
-  $('.modal-body').load(lnk,function(){
-   
-    
+$('#openBtn').click(function(){
+    $('#myModal').on('show', function () {
+
+        $('iframe').attr("src",frameSrc);
+      
   });
-  
-})
+    $('#myModal').modal({show:true})
+});
