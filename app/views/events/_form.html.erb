@@ -41,9 +41,11 @@
 		<%= f.radio_button :public, true  %> <%= f.label :public, "Public Event" %> <br>
   	<%= f.radio_button :public, false %> <%= f.label :public,  "Private Event" %>
   </p>
-		
+
+	<%= hidden_field_tag :space_id, params[:space_id] %>
+
 	<p>
 		<%= f.submit %>
 	</p>
-	
+
 <% end %>
