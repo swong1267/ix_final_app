@@ -9,6 +9,7 @@ gem 'twitter-bootstrap-rails'
 
 gem 'font-awesome-rails'
 gem 'bootstrap-glyphicons'
+gem "paperclip", "~> 4.3"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.2'

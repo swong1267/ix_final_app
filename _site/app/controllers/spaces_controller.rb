@@ -23,7 +23,6 @@ class SpacesController < ApplicationController
 
   def create
     @space = current_user.spaces.build(space_params)
-    @space.date = Date.today
 
     if @space.save
       redirect_to space_path(@space)

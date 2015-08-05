@@ -70,7 +70,6 @@ class SpacesController < ApplicationController
 
   def create
     @space = current_user.spaces.build(space_params)
-    @space.date = Date.today
 
     if @space.save
       redirect_to space_path(@space)
@@ -98,7 +97,7 @@ class SpacesController < ApplicationController
   private
 
   def space_params
-    params.require(:space).permit(:name, :category, :description, :location, :price, :capacity)
+    params.require(:space).permit(:name, :category, :description, :location, :price, :capacity, :avatar)
   end
 
 end

@@ -12,27 +12,23 @@
 
 				</div>
 <br><br>
-<div class="col-lg-12 centered">
-
-
-
-		</div>
-
 
 			</div>
-		</div>
 
+<div class="col-lg-8 col-lg-offset-2 centered">
+		<br><br>
 		<div id='map'></div>
 
 		<script>
 		L.mapbox.accessToken = 'pk.eyJ1IjoiY3htaSIsImEiOiJiOGVjYjQ1OWQ4ZjliYjUzMDU5YWJkMDJhNjYzZDUwYyJ9.qdfY6hSkrruwSL5v1URWrw';
 
 		var map = L.mapbox.map('map', 'mapbox.streets')
-		    .setView([-33.92947, 18.41071], 10); // [latitude, long], zoom value
+		    .setView([-33.92947, 18.41071], 12); // [latitude, long], zoom value
 
 		var myLocations = L.mapbox.featureLayer()
 		          .loadURL('/spaces.json')
 		          .addTo(map)
+
 
 		// Need to make sure all locations are loaded
 		myLocations.on('ready', function(e) {
@@ -40,7 +36,7 @@
 		  myLocations.eachLayer(function(layer) {
 
 		    // Custom tooltips
-		    var content = '<b>' + layer.feature.properties.name + '</b><br>' + layer.feature.properties.address;
+		    var content = '<b>' + layer.feature.properties.name + '</b><br>' + layer.feature.properties.location;
 
 		    // Add popup to layer
 		    layer.bindPopup(content);
@@ -48,3 +44,7 @@
 		});
 
 		</script>
+	</div>
+	<br><br>
+</div>
+<br><br><br>
