@@ -9,7 +9,9 @@
 				<br><br>
 				<% unless @messages == [nil] %>
 					<% @messages.each do |message| %>
-						<div class="col-md-2"><b>From:</b> <%= message.sender.email %></div>
+						<% unless message.sender == nil %>
+							<div class="col-md-2"><b>From:</b> <%= message.sender.email %></div>
+						<% end %>
 						<div class="col-md-8"><%= link_to message.subject, message_path(message) %></div>
 						<div class="col-md-2"><%= message.created_at %></div>
 					<% end %>
