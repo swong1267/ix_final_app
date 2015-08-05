@@ -9,8 +9,8 @@
 	<p> <%= image_tag @space.avatar.url(:medium) %> </p>
 	<p>
 		<% if can_crud_space?(@space) %>
-			<%= link_to "Edit Space", edit_space_path(@space) %> | 
-			<%= link_to "Delete Space", space_path(@space), method: :delete, data: { confirm: "Are you sure?" } %> | 
+			<%= link_to "Edit Space", edit_space_path(@space) %> |
+			<%= link_to "Delete Space", space_path(@space), method: :delete, data: { confirm: "Are you sure?" } %>
 		<% end %>
 
 	</p>
@@ -44,23 +44,21 @@ var myLocations = L.mapbox.featureLayer()
 
 </div>
 
+<!-- end modal -->
+</div>
 
-
-
-<!-- End Map -->
+<h5>Request space for: <%= link_to "Existing Event", new_space_request_path(@space) %> or <%= link_to "New Event", new_space_event_path(@space) %></h5>
 
 <div class="col-lg-4 col-lg-offset-4">
 
 <!-- Reviews -->
-
-
-				<%= link_to "Back", spaces_path %>
+	<%= link_to "Back", spaces_path %>
 	<br>
 		<h3>Reviews</h3>
 
 				<% @space.reviews.each do |review| %>
 					<%= review.user.email %>: <%= review.body %>
-					<% if review.user == current_user %> 
+					<% if review.user == current_user %>
 						| <%= link_to "Delete Review", space_review_path(@space, review), method: :delete, data: { confirm: "Are you sure?" } %>
 					<% end %>
 					</br>

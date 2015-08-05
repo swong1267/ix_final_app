@@ -23,6 +23,10 @@
 	padding-bottom: 180px;
 }
 
+.request-col {
+	text-align: left;
+}
+
 p.inline {
     display: inline;
     padding: 0 10px 0 10px;

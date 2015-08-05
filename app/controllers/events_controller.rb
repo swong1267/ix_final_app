@@ -1,6 +1,7 @@
 class EventsController < ApplicationController
   def index
-    @events = Event.all
+    @events = current_user.events
+    @events << Event.where(public: true)
   end
 
   def show
@@ -9,6 +10,10 @@ class EventsController < ApplicationController
 
   def new
     @event = Event.new
+
+    if params[:space_id]
+      @space = Space.find(params[:space_id])
+    end
   end
 
   def edit
@@ -18,8 +23,13 @@ class EventsController < ApplicationController
 
   def create
     @event = current_user.events.build(event_params)
+
     if @event.save
-      redirect_to event_path(@event)
+      if params[:space_id]
+        redirect_to new_request_path(space_id: params[:space_id])
+      else
+        redirect_to event_path(@event)
+      end
     else
       render 'new'
     end
@@ -39,6 +49,9 @@ class EventsController < ApplicationController
     can_change_object? @event
     @event.destroy
     redirect_to events_path
+  end
+
+  def new_request
   end
 
   private

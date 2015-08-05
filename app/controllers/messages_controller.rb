@@ -33,11 +33,11 @@ class MessagesController < ApplicationController
   end
 
   def inbox
-    @messages = Message.all
+    @messages = current_user.received_messages
   end
 
   def sent_mail
-    @messages = Message.all
+    @messages = current_user.sent_messages
   end
 
   private

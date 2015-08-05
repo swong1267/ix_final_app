@@ -25,6 +25,9 @@
 			No
 		<% end %>
 	</p>
+<% unless @event.space == nil %>
+	<p>Space: <%= @event.space.name %></p>
+<% end %>
 </div>
 </div>
 </div>
