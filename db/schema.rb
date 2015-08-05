@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150804201639) do
+ActiveRecord::Schema.define(version: 20150805082830) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,15 +23,11 @@ ActiveRecord::Schema.define(version: 20150804201639) do
     t.string   "category"
     t.string   "description"
     t.boolean  "public"
-    t.datetime "created_at",          null: false
-    t.datetime "updated_at",          null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
     t.integer  "user_id"
     t.integer  "space_id"
     t.date     "date"
-    t.string   "avatar_file_name"
-    t.string   "avatar_content_type"
-    t.integer  "avatar_file_size"
-    t.datetime "avatar_updated_at"
   end
 
   add_index "events", ["space_id"], name: "index_events_on_space_id", using: :btree
@@ -79,14 +75,10 @@ ActiveRecord::Schema.define(version: 20150804201639) do
     t.string   "description"
     t.string   "location"
     t.integer  "price"
-    t.datetime "created_at",          null: false
-    t.datetime "updated_at",          null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
     t.integer  "capacity"
     t.integer  "user_id"
-    t.string   "avatar_file_name"
-    t.string   "avatar_content_type"
-    t.integer  "avatar_file_size"
-    t.datetime "avatar_updated_at"
     t.float    "latitude"
     t.float    "longitude"
   end
