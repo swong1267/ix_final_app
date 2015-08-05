@@ -2,21 +2,14 @@ Rails.application.routes.draw do
 
   get 'welcome/index'
 
-  devise_for :users do
-    resources :events
-    resources :spaces
-    resources :messages
-  end
+  devise_for :users
+
+  resources :profiles
 
   resources :spaces do
     resources :reviews
     resources :requests
     resources :events
-    # do
-    #   collection do
-    #     get 'new_request'
-    #   end
-    # end
   end
 
   resources :messages do
