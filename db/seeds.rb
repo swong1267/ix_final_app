@@ -21,9 +21,9 @@ cam = User.create! email: "cam@cam.com", password: "12345678", password_confirma
 aobo = User.create! email: "aobo@aobo.com", password: "12345678", password_confirmation: "12345678"
 tim = User.create! email: "tim@tim.com", password: "12345678", password_confirmation: "12345678"
 
-ian_space = Space.create! name: "Once", category: "Room", description: "hipster hostel", location: "Cape Town", price: 200, capacity: 40, user: ian
-brian_space = Space.create! name: "iX House", category: "Building", description: "movie room with fat sacsl", location: "Cape Town", price: 100, capacity: 20, user: brian
-erica_space = Space.create! name: "Knead", category: "Room", description: "delicious food", location: "Cape Town", price: 250, capacity: 50, user: erica
+ian_space = Space.create! name: "Once", category: "Room", description: "hipster hostel", location: "73 Kloof Street, Gardens, Cape Town, South Africa", price: 200, capacity: 40, user: ian
+brian_space = Space.create! name: "iX House", category: "Building", description: "movie room with fat sacsl", location: "19 Park Rd, Cape Town, South Africa", price: 100, capacity: 20, user: brian
+erica_space = Space.create! name: "Knead", category: "Room", description: "delicious food", location: "50 Kloof Street, Cape Town, South Africa", price: 250, capacity: 50, user: erica
 
 cam_event = Event.create! name: "birthday party", location: "cape town", people: 20, category: "Gathering", description: "best friend's 21st", public: false, user: cam, space: ian_space, date: DateTime.parse("2/8/2015 17:00")
 aobo_event = Event.create! name: "weekly pottery workshop", location: "cape town", people: 10, category: "Workshop/Class", description: "beginner's intro to pottery", public: true, space: ian_space, user: aobo, date: DateTime.parse("3/8/2015 18:00")

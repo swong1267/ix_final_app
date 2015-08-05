@@ -1,6 +1,30 @@
 class SpacesController < ApplicationController
   def index
     @spaces = Space.all
+
+    @geojson = Array.new
+    @spaces.each do |space|
+      @geojson << {
+        type: 'Feature',
+        geometry: {
+          type: 'Point',
+          coordinates: [space.longitude, space.latitude]
+        },
+        properties: {
+          name: space.name,
+          address: space.location,
+          :'marker-color' => '#00607d',
+          :'marker-symbol' => 'circle',
+          :'marker-size' => 'medium'
+        }
+      }
+    end
+
+    respond_to do |format|
+      format.html
+      format.json { render json: @geojson }  # respond with the created JSON object
+    end
+
   end
 
   def show
@@ -9,6 +33,29 @@ class SpacesController < ApplicationController
     @events_by_date = @events.group_by(&:date)
     @date = params[:date] ? Date.parse(params[:date]) : Date.today
     @review = Review.new
+
+    
+    @geojson = Array.new
+    @geojson << {
+      type: 'Feature',
+      geometry: {
+        type: 'Point',
+        coordinates: [@space.longitude, @space.latitude]
+      },
+      properties: {
+        name: @space.name,
+        address: @space.location,
+        :'marker-color' => '#00607d',
+        :'marker-symbol' => 'circle',
+        :'marker-size' => 'medium'
+      }
+    }
+
+    respond_to do |format|
+      format.html
+      format.json { render json: @geojson }  # respond with the created JSON object
+    end
+
   end
 
   def new
@@ -53,4 +100,5 @@ class SpacesController < ApplicationController
   def space_params
     params.require(:space).permit(:name, :category, :description, :location, :price, :capacity)
   end
+
 end

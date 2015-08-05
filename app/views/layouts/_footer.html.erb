@@ -16,29 +16,6 @@
 					</p>
 				</div><! --/col-lg-3 -->
 				
-				<!-- TWEETS -->
-				<div class="col-lg-3">
-					<h4>Recent Tweets</h4>
-					<div id="showtweets"></div>
-						<script>
-							twitterFetcher.fetch('258157205101088768', 'showtweets', 2, true, false, false, '', false, handleTweets, false);
-							
-							function handleTweets(tweets){
-							    var x = tweets.length;
-							    var n = 0;
-							    var element = document.getElementById('showtweets');
-							    var html = '<ul>';
-							    while(n < x) {
-							      html += '<li>' + tweets[n] + '</li>';
-							      n++;
-							    }
-							    html += '</ul>';
-							    element.innerHTML = html;
-							}					
-						</script>
-					<p>Follow us <b>@Alvrz_is</b></p>
-				</div><!-- /col-lg-3 -->
-				
 				<!-- LATEST POSTS -->
 				<div class="col-lg-3">
 					<h4>Site Map</h4>

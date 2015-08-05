@@ -97,3 +97,9 @@ h6 {
 
   right: 200px;
 }
+
+#map {
+  width: 500px;
+  height: 500px;
+}
+
