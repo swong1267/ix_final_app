@@ -6,10 +6,11 @@
 
 	</div>
 	<div class="col-lg-4 col-lg-offset-4">
+	<p> <%= image_tag @space.avatar.url(:medium) %> </p>
 	<p>
 		<% if can_crud_space?(@space) %>
-			<%= link_to "Edit Space", edit_space_path(@space) %> | 
-			<%= link_to "Delete Space", space_path(@space), method: :delete, data: { confirm: "Are you sure?" } %> 
+			<%= link_to "Edit Space", edit_space_path(@space) %> |
+			<%= link_to "Delete Space", space_path(@space), method: :delete, data: { confirm: "Are you sure?" } %>
 		<% end %>
 
 	</p>
@@ -22,54 +23,25 @@
 <!-- Calendar -->
 </div>
 
-
-<!-- modal -->
-
-
-<div class="col-lg-10 col-lg-offset-1 centered">
-
-<!-- Trigger the modal with a button -->
-See Availability: <br>
-<button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">Open Calendar</button>
-
-<!-- Modal -->
-<div id="myModal" class="modal fade" role="dialog">
-  <div class="modal-dialog">
-
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title"><h1 id="month">
-					<%= link_to "<", date: @date.prev_month %> 
-					<%= @date.strftime("%B %Y") %>
-					<%= link_to ">", date: @date.next_month %></h1></h4>
-      </div>
-      <div class="modal-body">
-        
-			<!-- <div class="col-lg-10 col-lg-offset-1"> -->
-				
-				<%= calendar @date do |date| %>
-					<%= date.day %>
-					<% if @events_by_date[date] %>
-						<ul class="entries">
-							<% @events_by_date[date].each do |event| %>
-							<li><%= link_to truncate(event.name, :length => 15), event %></li>
-							<% end %>
-						</ul>
-					<% end %>
-				<% end %>
-			<!-- 	</div> -->
+<%= render 'modal' %>
 
 
 
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-      </div>
-    </div>
+<!-- Map -->
+<div class="col-lg-8 col-lg-offset-2 centered">
+<div id='map'></div>
+<script>
+L.mapbox.accessToken = 'pk.eyJ1IjoiY3htaSIsImEiOiJiOGVjYjQ1OWQ4ZjliYjUzMDU5YWJkMDJhNjYzZDUwYyJ9.qdfY6hSkrruwSL5v1URWrw';
 
-  </div>
+var map = L.mapbox.map('map', 'mapbox.streets')
+    .setView([-33.92947, 18.41071], 12); // [latitude, long], zoom value
+
+var myLocations = L.mapbox.featureLayer()
+          .loadURL('/spaces/<%= escape_javascript params[:id] %>.json')
+          .addTo(map)
+          .bindPopup("<b><%= @space.name %></b><br><%= @space.location %>");
+</script>
+
 </div>
 
 <!-- end modal -->
@@ -86,7 +58,7 @@ See Availability: <br>
 
 				<% @space.reviews.each do |review| %>
 					<%= review.user.email %>: <%= review.body %>
-					<% if review.user == current_user %> 
+					<% if review.user == current_user %>
 						| <%= link_to "Delete Review", space_review_path(@space, review), method: :delete, data: { confirm: "Are you sure?" } %>
 					<% end %>
 					</br>

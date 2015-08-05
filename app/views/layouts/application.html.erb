@@ -2,11 +2,9 @@
 <html>
 <head>
   <title>FinalApp</title>
-
-	 <script type="text/javascript" src="http://alvarez.is/demo/marco/assets/js/twitterFetcher_v10_min.js"></script>
-    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
-    <script src="assets/js/hover_pack.js"></script>
-
+	<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+	<link href='https://api.mapbox.com/mapbox.js/v2.2.1/mapbox.css' rel='stylesheet' />
+	<script src='https://api.mapbox.com/mapbox.js/v2.2.1/mapbox.js'></script>
 </head>
 <body>
 
@@ -15,14 +13,11 @@
 
     
 <%= yield %>
+	<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+	<%= csrf_meta_tags %>
 
 
 <%= render 'layouts/footer' %>
-
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-  <script src="assets/js/retina.js"></script>
 
 
 </body>

@@ -13,6 +13,8 @@
 //= require jquery
 //= require jquery_ujs
 //= require twitter/bootstrap
+//= require hover_pack
+//= require retina
 //= require turbolinks
 //= require_tree .
 
@@ -43,15 +45,4 @@ $('a[href*=#]:not([href=#])').click(function() {
         return false;
       }
     }
-});
-
-var frameSrc = "layout/calendar";
-
-$('#openBtn').click(function(){
-    $('#myModal').on('show', function () {
-
-        $('iframe').attr("src",frameSrc);
-      
-  });
-    $('#myModal').modal({show:true})
 });

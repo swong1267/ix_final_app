@@ -7,4 +7,6 @@ class Event < ActiveRecord::Base
   validates :public, exclusion: { in: [nil] }
   validates :category, inclusion: { in: ["Workshop/Class", "Gathering", "Meeting/Conference", "Performance", "Gallery", "Personal", "Other"] }
 
+    has_attached_file :avatar, :styles => { :medium => "350x350>", :thumb => "100x100>" }, :default_url => "/img/missingevent_:style.jpg"
+  validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
 end
