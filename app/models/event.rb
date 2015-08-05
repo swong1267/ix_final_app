@@ -1,7 +1,7 @@
 class Event < ActiveRecord::Base
   belongs_to :user
   belongs_to :space
-  has_many :inquiries, foreign_key: "event_id", dependent: :destroy
+  has_many :requests, foreign_key: "event_id", dependent: :destroy
   validates :name, :location, :people, :category, :description, presence: true
   validates :people, numericality: { only_integer: true, greater_than: 0 }
   validates :public, exclusion: { in: [nil] }

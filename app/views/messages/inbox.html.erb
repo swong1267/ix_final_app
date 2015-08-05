@@ -9,15 +9,14 @@
 
 		<div class="col-lg-12">
 			<br><br>
+<% unless @messages == [nil] %>
 	<% @messages.each do |message| %>
-		<% if message.recipient == current_user %>
-		
 				<div class="col-md-2"><b>From:</b> <%= message.sender.email %></div>
 				<div class="col-md-8"><%= link_to message.subject, message_path(message) %></div>
 				<div class="col-md-2"><%= message.created_at %></div>
 			</div>
-		<% end %>
 	<% end %>	
+<% end %>
 </div>
 </div>
 </div>

@@ -10,10 +10,13 @@ Rails.application.routes.draw do
 
   resources :spaces do
     resources :reviews
-    resources :inquiries
+    resources :requests
+    resources :events do
+      collection do
+        get 'new_request'
+      end
+    end
   end
-
-  # resources :inquiries
   
   resources :messages do
     collection do
@@ -23,7 +26,7 @@ Rails.application.routes.draw do
   end
 
   resources :events
-  resources :inquiries
+  resources :requests
 
   # resources :spaces do
   #   resources :events

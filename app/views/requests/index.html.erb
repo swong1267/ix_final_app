@@ -10,14 +10,12 @@
 				<div class="col-md-2">Sent from:</div>
 				<div class="col-md-10">Request:</div>
 			</div>
-			<% @sent_inquiries.each do |inquiry| %>
-				<% if current_user.spaces.include? inquiry.space  %>
-					<div class="row">
-						<div class="col-md-2"><%= inquiry.event.user.email %></div>
-						<div class="col-md-8"><%= inquiry.body %></div>
+			<% @received_requests.each do |request| %>
+				<div class="row">
+					<div class="col-md-2"><%= request.event.user.email %></div>
+					<div class="col-md-8"><%= request.body %></div>
 
-					</div>
-				<% end %>
+				</div>
 			<% end %>
 
 			<h3>My requests for spaces:</h3>
@@ -26,10 +24,10 @@
 				<div class="col-md-2">Sent to:</div>
 				<div class="col-md-10">Request:</div>
 			</div>
-			<% @inquiries.each do |inquiry| %>
+			<% @sent_requests.each do |request| %>
 				<div class="row">
-					<div class="col-md-2"><%= inquiry.space.user.email %></div>
-					<div class="col-md-10"><%= inquiry.body %></div>
+					<div class="col-md-2"><%= request.space.user.email %></div>
+					<div class="col-md-10"><%= request.body %></div>
 				</div>
 			<% end %>
 		</div>

@@ -3,10 +3,10 @@
 	    <div class="col-lg-4 col-lg-offset-4 centered">
 	<h1>All Events</h1>
 	<%= link_to "New Event", new_event_path %></br>
-	<% @events.each do |event| %>
-		<% if event.public || event.user == current_user %> 
-			<%= event.name %> | 
-			<%= link_to "Show Event", event_path(event) %></br>
+	<% unless @events == [nil] %>
+		<% @events.each do |event| %>
+				<%= event.name %> | 
+				<%= link_to "Show Event", event_path(event) %></br>
 		<% end %>
 	<% end %>
 </div>

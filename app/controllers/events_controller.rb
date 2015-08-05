@@ -1,6 +1,7 @@
 class EventsController < ApplicationController
   def index
-    @events = Event.all
+    @events = current_user.events
+    @events << Event.where(public: true)
   end
 
   def show
@@ -39,6 +40,9 @@ class EventsController < ApplicationController
     can_change_object? @event
     @event.destroy
     redirect_to events_path
+  end
+
+  def new_request
   end
 
   private

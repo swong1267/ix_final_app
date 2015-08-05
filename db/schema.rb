@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150804141831) do
+ActiveRecord::Schema.define(version: 20150805083951) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,17 +33,6 @@ ActiveRecord::Schema.define(version: 20150804141831) do
   add_index "events", ["space_id"], name: "index_events_on_space_id", using: :btree
   add_index "events", ["user_id"], name: "index_events_on_user_id", using: :btree
 
-  create_table "inquiries", force: :cascade do |t|
-    t.integer  "space_id"
-    t.integer  "event_id"
-    t.string   "body"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  add_index "inquiries", ["event_id"], name: "index_inquiries_on_event_id", using: :btree
-  add_index "inquiries", ["space_id"], name: "index_inquiries_on_space_id", using: :btree
-
   create_table "messages", force: :cascade do |t|
     t.integer  "sender_id"
     t.integer  "recipient_id"
@@ -55,6 +44,17 @@ ActiveRecord::Schema.define(version: 20150804141831) do
 
   add_index "messages", ["recipient_id"], name: "index_messages_on_recipient_id", using: :btree
   add_index "messages", ["sender_id"], name: "index_messages_on_sender_id", using: :btree
+
+  create_table "requests", force: :cascade do |t|
+    t.integer  "space_id"
+    t.integer  "event_id"
+    t.string   "body"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "requests", ["event_id"], name: "index_requests_on_event_id", using: :btree
+  add_index "requests", ["space_id"], name: "index_requests_on_space_id", using: :btree
 
   create_table "reviews", force: :cascade do |t|
     t.integer  "user_id"
