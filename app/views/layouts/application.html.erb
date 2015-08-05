@@ -11,7 +11,7 @@
 <%= render 'layouts/header' %>
 <div id="error"><%= flash[:error] %></div>
 
-    
+
 <%= yield %>
 	<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 	<%= csrf_meta_tags %>

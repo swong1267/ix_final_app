@@ -15,8 +15,8 @@
 			<% @received_requests.each do |request| %>
 				<div class="row">
 					<div class="col-md-2"><%= request.event.user.email %></div>
-					<div class="col-md-2"><%= request.event.name %></div>
-					<div class="col-md-2"><%= request.space.name %></div>
+					<div class="col-md-2"><%= link_to request.event.name, event_path(request.event) %></div>
+					<div class="col-md-2"><%= link_to request.space.name, space_path(request.space) %></div>
 					<div class="col-md-2 request-col"><%= request.body %></div>
 					<% if request.unanswered? %>
 						<div class="col-md-2"><%= link_to "Confirm", confirm_request_path(request), class: 'btn btn-primary' %></div>
@@ -40,8 +40,8 @@
 			<% @sent_requests.each do |request| %>
 				<div class="row">
 					<div class="col-md-2"><%= request.space.user.email %></div>
-					<div class="col-md-2"><%= request.event.name %></div>
-					<div class="col-md-2"><%= request.space.name %></div>
+					<div class="col-md-2"><%= link_to request.event.name, event_path(request.event) %></div>
+					<div class="col-md-2"><%= link_to request.space.name, space_path(request.space) %></div>
 					<div class="col-md-2 request-col"><%= request.body %></div>
 					<div class="col-md-2">
 						<% if request.confirmed? %>

@@ -1,22 +1,20 @@
 <div id="white">
 	<div class="container">
-	    <div class="col-lg-4 col-lg-offset-4 centered">
-	<h1>Inbox</h1>
-
-	<%= link_to "Send New Message", new_message_path %>	| 
-	<%= link_to "Sent Mail", sent_mail_messages_path %>
-	</div>
-
-		<div class="col-lg-12">
-			<br><br>
-<% unless @messages == [nil] %>
-	<% @messages.each do |message| %>
-				<div class="col-md-2"><b>From:</b> <%= message.sender.email %></div>
-				<div class="col-md-8"><%= link_to message.subject, message_path(message) %></div>
-				<div class="col-md-2"><%= message.created_at %></div>
+	  <div class="col-lg-4 col-lg-offset-4 centered">
+			<h1>Inbox</h1>
+			<%= link_to "Send New Message", new_message_path %>	|
+			<%= link_to "Sent Mail", sent_mail_messages_path %>
 			</div>
-	<% end %>	
-<% end %>
-</div>
-</div>
+			<div class="col-lg-12">
+				<br><br>
+				<% unless @messages == [nil] %>
+					<% @messages.each do |message| %>
+						<div class="col-md-2"><b>From:</b> <%= message.sender.email %></div>
+						<div class="col-md-8"><%= link_to message.subject, message_path(message) %></div>
+						<div class="col-md-2"><%= message.created_at %></div>
+					<% end %>
+				<% end %>
+			</div>
+		</div>
+	</div>
 </div>

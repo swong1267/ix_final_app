@@ -12,11 +12,6 @@ Rails.application.routes.draw do
     resources :reviews
     resources :requests
     resources :events
-    # do
-    #   collection do
-    #     get 'new_request'
-    #   end
-    # end
   end
 
   resources :messages do
