@@ -26,7 +26,12 @@ Rails.application.routes.draw do
   end
 
   resources :events
-  resources :requests
+  resources :requests do
+    member do
+      get 'confirm'
+      get 'deny'
+    end
+  end
 
   # resources :spaces do
   #   resources :events

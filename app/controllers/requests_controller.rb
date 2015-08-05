@@ -1,5 +1,5 @@
 class RequestsController < ApplicationController
-  before_action :verify_user, :only => [:create]
+  before_action :verify_user_owns_event, :only => [:create]
 
   def index
     @received_requests = current_user.space_requests
@@ -8,16 +8,18 @@ class RequestsController < ApplicationController
 
   def new
     @request = Request.new
-    @events = Event.all
+    @events = current_user.events
     @space = Space.find(params[:space_id])
   end
 
   def create
     @space = Space.find(params[:space_id])
-    @event = Event.find(params[:request][:event_id])
-    @request = Request.create(request_params)
+
+    @request = Request.new(request_params)
     @request.event = @event
     @request.space = @space
+
+    # @request.unanswered_state!
 
     if @request.save
       redirect_to space_path(@request.space)
@@ -27,19 +29,27 @@ class RequestsController < ApplicationController
   end
 
   def destroy
-    @request = request.find(params[:id])
+    @request = Request.find(params[:id])
     @request.destroy
     redirect_to requests_path
   end
 
+  def confirm
+    @request = Request.find(params[:id])
+    @event = @request.event
+    @space = @request.space
+    @event.space = @space
+    @event.save
+    redirect_to event_path(@event)
+  end
+
   private
 
-  def verify_user
-    event = Event.find(params[:request][:event_id])
-    space = Space.find(params[:space_id])
-    unless event.user == current_user
-      flash[:error] = "That's not your event!"
-      redirect_to space_path(space)
+  def verify_user_owns_event
+    @event = current_user.events.find_by_id(params[:request][:event_id])
+
+    if @event.blank?
+      redirect_to space_path(params[:space_id]), alert: "That's not your event!"
     end
   end
 
