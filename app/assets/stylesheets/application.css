@@ -16,6 +16,7 @@
  *= require colors/color-74c9be
  *= require animations
  *= require font-awesome
+ *= require bootstrap-datetimepicker
  *= require_tree .
  *= require_self
  */

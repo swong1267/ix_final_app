@@ -13,12 +13,16 @@
 
     
 <%= yield %>
+
 	<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 	<%= csrf_meta_tags %>
 
 
 <%= render 'layouts/footer' %>
 
+<script type="text/javascript">
+    $('.datetimepicker').datetimepicker();
+</script>
 
 </body>
 </html>
