@@ -19,8 +19,6 @@ class RequestsController < ApplicationController
     @request.event = @event
     @request.space = @space
 
-    # @request.unanswered_state!
-
     if @request.save
       redirect_to space_path(@request.space)
     else
@@ -36,11 +34,18 @@ class RequestsController < ApplicationController
 
   def confirm
     @request = Request.find(params[:id])
+    @request.confirmed!
     @event = @request.event
     @space = @request.space
     @event.space = @space
     @event.save
     redirect_to event_path(@event)
+  end
+
+  def deny
+    @request = Request.find(params[:id])
+    @request.denied!
+    redirect_to requests_path
   end
 
   private

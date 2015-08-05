@@ -11,13 +11,14 @@ Rails.application.routes.draw do
   resources :spaces do
     resources :reviews
     resources :requests
-    resources :events do
-      collection do
-        get 'new_request'
-      end
-    end
+    resources :events
+    # do
+    #   collection do
+    #     get 'new_request'
+    #   end
+    # end
   end
-  
+
   resources :messages do
     collection do
       get :inbox
