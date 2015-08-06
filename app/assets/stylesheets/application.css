@@ -108,4 +108,12 @@ h6 {
   height: 500px;
 }
 
+table {
+	border: 1px solid lightgray;
+	border-radius: 15px 50px;
+}
 
+td {
+	max-width:100px; 
+	word-wrap:break-word;
+}
