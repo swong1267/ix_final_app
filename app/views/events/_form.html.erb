@@ -12,14 +12,16 @@
   </div>
 <% end %>
 
+		
+
 	<p>
 		<%= f.label :name %><br>
 		<%= f.text_field :name, :size => 40 %>
 	</p>
 	<p><%= f.file_field :avatar %></p>
 	<p>
-		<%= f.label :location %><br>
-		<%= f.text_field :location, :size => 40 %>
+		<%= f.label :location, "Desired Location" %><br>
+		<%= f.text_field :location, value: @spacename, :size => 40 %>
 	</p>
 
 	<p>

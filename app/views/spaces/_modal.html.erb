@@ -24,7 +24,7 @@
 						<% if @events_by_date[date] %>
 							<ul class="entries">
 								<% @events_by_date[date].each do |event| %>
-								<li><%= link_to truncate(event.name, :length => 15), event %></li>
+								<li><small><%= link_to truncate(event.name, :length => 25), event %></small></li>
 								<% end %>
 							</ul>
 						<% end %>

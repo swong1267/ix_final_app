@@ -14,6 +14,12 @@ class EventsController < ApplicationController
     if params[:space_id]
       @space = Space.find(params[:space_id])
     end
+
+    if params[:space_id].present? 
+      @spacename = Space.find(params[:space_id]).name
+    
+    end
+   
   end
 
   def edit
@@ -25,7 +31,7 @@ class EventsController < ApplicationController
     @event = current_user.events.build(event_params)
 
     if @event.save
-      if params[:space_id]
+      if params[:space_id].present?
         redirect_to new_request_path(space_id: params[:space_id])
       else
         redirect_to event_path(@event)
@@ -56,7 +62,7 @@ class EventsController < ApplicationController
 
   private
     def event_params
-      params.require(:event).permit(:name, :location, :people, :category, :avatar, :description, :public)
+      params.require(:event).permit(:name, :location, :people, :category, :avatar, :description, :date, :public)
     end
 end
 

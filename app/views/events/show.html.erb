@@ -18,6 +18,9 @@
 			<p>Number of People: <%= @event.people %></p>
 			<p>Category: <%= @event.category %></p>
 			<p>Description: <%= @event.description %></p>
+			<% if @event.date.present? %>
+			<p>Date: <%= @event.date %></p>
+			<% end %>
 			<% if @event.user == current_user %>
 				<p>Public:
 					<% if @event.public %>

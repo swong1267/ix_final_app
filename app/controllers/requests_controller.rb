@@ -20,7 +20,8 @@ class RequestsController < ApplicationController
     @request.space = @space
 
     if @request.save
-      redirect_to space_path(@request.space)
+      # redirect_to space_path(@request.space)
+      redirect_to requests_path
     else
       render 'new'
     end
