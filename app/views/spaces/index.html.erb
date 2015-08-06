@@ -1,50 +1,46 @@
 <div id="white">
-	    <div class="container">
-			<div class="row">
-	    		<div class="col-lg-4 col-lg-offset-4 centered">
-					<h3>Available Spaces</h3>
-					<%= link_to "New Space", new_space_path %></br>
-					<% @spaces.each do |space| %>
-						<%= space.name %> | 
-						<%= link_to "Show Space", space_path(space) %>
-						</br>
-					<% end %>
-
-				</div>
-<br><br>
-
-			</div>
-
-<div class="col-lg-8 col-lg-offset-2 centered">
+  <div class="container">
+		<div class="row">
+  		<div class="col-lg-4 col-lg-offset-4 centered">
+				<h3>Available Spaces</h3>
+				<%= link_to "New Space", new_space_path %></br>
+				<% @spaces.each do |space| %>
+					<%= space.name %> |
+					<%= link_to "Show Space", space_path(space) %>
+					</br>
+				<% end %>
+		</div>
+		<br><br>
+	</div>
+	<div class="col-lg-8 col-lg-offset-2 centered">
 		<br><br>
 		<div id='map'></div>
+			<script>
+				L.mapbox.accessToken = 'pk.eyJ1IjoiY3htaSIsImEiOiJiOGVjYjQ1OWQ4ZjliYjUzMDU5YWJkMDJhNjYzZDUwYyJ9.qdfY6hSkrruwSL5v1URWrw';
 
-		<script>
-		L.mapbox.accessToken = 'pk.eyJ1IjoiY3htaSIsImEiOiJiOGVjYjQ1OWQ4ZjliYjUzMDU5YWJkMDJhNjYzZDUwYyJ9.qdfY6hSkrruwSL5v1URWrw';
+				var map = L.mapbox.map('map', 'mapbox.streets')
+				    .setView([-33.92947, 18.41071], 12); // [latitude, long], zoom value
 
-		var map = L.mapbox.map('map', 'mapbox.streets')
-		    .setView([-33.92947, 18.41071], 12); // [latitude, long], zoom value
-
-		var myLocations = L.mapbox.featureLayer()
-		          .loadURL('/spaces.json')
-		          .addTo(map)
+				var myLocations = L.mapbox.featureLayer()
+				          .loadURL('/spaces.json')
+				          .addTo(map)
 
 
-		// Need to make sure all locations are loaded
-		myLocations.on('ready', function(e) {
-		  // For each layer, do:
-		  myLocations.eachLayer(function(layer) {
+				// Need to make sure all locations are loaded
+				myLocations.on('ready', function(e) {
+				  // For each layer, do:
+				  myLocations.eachLayer(function(layer) {
 
-		    // Custom tooltips
-		    var content = '<b>' + layer.feature.properties.name + '</b><br>' + layer.feature.properties.location;
+				    // Custom tooltips
+				    var content = '<b>' + layer.feature.properties.name + '</b><br>' + layer.feature.properties.location;
 
-		    // Add popup to layer
-		    layer.bindPopup(content);
-		  });
-		});
-
-		</script>
+				    // Add popup to layer
+				    layer.bindPopup(content);
+				  });
+				});
+			</script>
+		</div>
+		<br><br>
 	</div>
-	<br><br>
+	<br><br><br>
 </div>
-<br><br><br>

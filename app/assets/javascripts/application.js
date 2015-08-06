@@ -13,13 +13,12 @@
 //= require jquery
 //= require jquery_ujs
 //= require twitter/bootstrap
-//= require hover_pack
-//= require retina
 //= require turbolinks
 //= require moment
 //= require bootstrap-datetimepicker
 //= require pickers
 //= require_tree .
+
 
 /* smooth scrolling sections */
 $('a[href*=#]:not([href=#])').click(function() {
@@ -49,3 +48,7 @@ $('a[href*=#]:not([href=#])').click(function() {
       }
     }
 });
+
+
+
+

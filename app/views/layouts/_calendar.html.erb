@@ -1,30 +1,27 @@
-
-				<%= calendar @date do |date| %>
-					<%= date.day %>
-					<% if @events_by_date[date] %>
-						<ul class="entries">
-							<% @events_by_date[date].each do |event| %>
-							<li><%= link_to truncate(event.name, :length => 15), event %></li>
-							<% end %>
-						</ul>
-					<% end %>
-				<% end %>
-
-
-
-<div class="col-lg-10 col-lg-offset-1">
-<h1 id="month">
-	<%= link_to "<", date: @date.prev_month %> 
-	<%= @date.strftime("%B %Y") %>
-	<%= link_to ">", date: @date.next_month %></h2>
 <%= calendar @date do |date| %>
 	<%= date.day %>
 	<% if @events_by_date[date] %>
 		<ul class="entries">
 			<% @events_by_date[date].each do |event| %>
-			<li><%= link_to event.name, event %></li>
+			<li><%= link_to truncate(event.name, :length => 15), event %></li>
 			<% end %>
 		</ul>
 	<% end %>
 <% end %>
+
+<div class="col-lg-10 col-lg-offset-1">
+	<h1 id="month">
+		<%= link_to "<", date: @date.prev_month %>
+		<%= @date.strftime("%B %Y") %>
+		<%= link_to ">", date: @date.next_month %></h2>
+		<%= calendar @date do |date| %>
+			<%= date.day %>
+			<% if @events_by_date[date] %>
+				<ul class="entries">
+					<% @events_by_date[date].each do |event| %>
+					<li><%= link_to event.name, event %></li>
+					<% end %>
+				</ul>
+			<% end %>
+		<% end %>
 </div>
