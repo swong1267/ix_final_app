@@ -6,7 +6,6 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find(params[:id])
-    binding.pry
   end
 
   def new
