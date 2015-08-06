@@ -1,7 +1,7 @@
 class WelcomeController < ApplicationController
 
 def index
-	@events = Event.all
+  @events = Event.where(public: true)
 	@spaces = Space.all
 	@users = User.all
 end
