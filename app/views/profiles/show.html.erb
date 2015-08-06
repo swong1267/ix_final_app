@@ -1,0 +1,45 @@
+<div id="white">
+	<div class="container">
+    <div class="col-lg-8 col-lg-offset-2 centered">
+			<h1><%= @profile.name.capitalize %>'s Profile</h1>
+			<p>Bio: <%= @profile.bio %></p></br>
+			<p>
+
+			<h3>Spaces</h3>
+			<div class="row">
+				<b>
+					<div class="col-md-4">Space:</div>
+					<div class="col-md-4">Average Rating:</div>
+				</b>
+			</div>
+			<% @spaces.each do |space| %>
+				<div class="row">
+					<div class="col-md-4"><%= space.name %></div>
+						<% space.reviews.each do |review| %>
+							<% @avg_rating += review.rating %>
+						<% end %>
+					<div class="col-md-4">Average Rating: <%= @avg_rating/space.reviews.count %></div>
+					<div class="col-md-4"><%= link_to "View", space_path(space) %></div>
+				</div>
+			<% end %>
+
+			<h3>Events</h3>
+			<div class="row">
+				<b>
+					<div class="col-md-4">Event:</div>
+					<div class="col-md-4">Date:</div>
+				</b>
+			</div>
+			<% @events.each do |event| %>
+				<% if event.public %>
+					<div class="row">
+						<div class="col-md-4"><%= event.name %></div>
+						<div class="col-md-4"><%= event.date %></div>
+						<div class="col-md-4"><%= link_to "View", event_path(event) %></div>
+					</div>
+				<% end %>
+			<% end %>
+			<p><%= link_to "Contact", new_message_path(recipient: @profile.user.email) %> <%= @profile.name.capitalize %></p>
+		</div>
+	</div>
+</div>

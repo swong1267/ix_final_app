@@ -43,7 +43,6 @@
 			<!-- Reviews -->
 			<br>
 			<h3>Reviews</h3>
-
 				<% @space.reviews.each do |review| %>
 					<%= review.user.email %>: <%= review.body %>
 					<% if review.user == current_user %>
