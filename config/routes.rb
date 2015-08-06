@@ -4,7 +4,11 @@ Rails.application.routes.draw do
 
   devise_for :users
 
-  resources :profiles
+  resources :profiles do
+    member do
+      get 'dashboard'
+    end
+  end
 
   resources :spaces do
     resources :reviews
