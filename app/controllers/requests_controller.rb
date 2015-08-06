@@ -1,5 +1,4 @@
 class RequestsController < ApplicationController
-  before_action :verify_user_owns_event, :only => [:create]
 
   def index
     @received_requests = current_user.space_requests
@@ -16,7 +15,7 @@ class RequestsController < ApplicationController
     @space = Space.find(params[:space_id])
 
     @request = Request.new(request_params)
-    @request.event = @event
+    @request.event = Event.find(params[:request][:event_id])
     @request.space = @space
 
     if @request.save
@@ -40,23 +39,30 @@ class RequestsController < ApplicationController
     @space = @request.space
     @event.space = @space
     @event.save
+
+    send_confirmed_message @event
     redirect_to event_path(@event)
   end
 
   def deny
     @request = Request.find(params[:id])
     @request.denied!
+    send_denied_message @request
     redirect_to requests_path
   end
 
   private
 
-  def verify_user_owns_event
-    @event = current_user.events.find_by_id(params[:request][:event_id])
+  def send_confirmed_message(event)
+    subject = "You're event " + event.name + " has been confirmed!"
+    body = event.space.user.email + " has accepted your request! "
+    Message.create! recipient: event.user, subject: subject, body: body
+  end
 
-    if @event.blank?
-      redirect_to space_path(params[:space_id]), alert: "That's not your event!"
-    end
+  def send_denied_message(request)
+    subject = "You're event " + request.event.name + " has been denied."
+    body = request.space.user.email + " has denied your request! "
+    Message.create! recipient: request.event.user, subject: subject, body: body
   end
 
   def request_params
