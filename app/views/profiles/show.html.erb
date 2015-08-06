@@ -2,7 +2,7 @@
 	<div class="container">
     <div class="col-lg-8 col-lg-offset-2 centered">
 			<h1><%= @profile.name.capitalize %>'s Profile</h1>
-			<p>Email: <%= @profile.user.email %></p></br>
+			<p>Bio: <%= @profile.bio %></p></br>
 			<p>
 
 			<h3>Spaces</h3>
@@ -15,42 +15,31 @@
 			<% @spaces.each do |space| %>
 				<div class="row">
 					<div class="col-md-4"><%= space.name %></div>
-					<div class="col-md-4">
-						<%=  %>
-
-
-						<% if space.requests.where(status: 0) == [] %>
-							No</div>
-						<% else %>
-							Yes</div>
-							<div class="col-md-4"><%= link_to "View", requests_path %></div>
+						<% space.reviews.each do |review| %>
+							<% @avg_rating += review.rating %>
 						<% end %>
+					<div class="col-md-4">Average Rating: <%= @avg_rating/space.reviews.count %></div>
+					<div class="col-md-4"><%= link_to "View", space_path(space) %></div>
 				</div>
 			<% end %>
 
-			<div class="earning_stats">
-				<h4>Space Stats</h4>
-
-			</div>
-
-			<h3>My Events</h3>
+			<h3>Events</h3>
 			<div class="row">
-				<div class="col-md-4">Event:</div>
-				<div class="col-md-4">Pending Requests:</div>
+				<b>
+					<div class="col-md-4">Event:</div>
+					<div class="col-md-4">Date:</div>
+				</b>
 			</div>
 			<% @events.each do |event| %>
-				<div class="row">
-					<div class="col-md-4"><%= event.name %></div>
-					<div class="col-md-4">
-						<% if event.requests.where(status: 0) == [] %>
-							No</div>
-						<% else %>
-							Yes</div>
-							<div class="col-md-4"><%= link_to "View", requests_path %></div>
-						<% end %>
-				</div>
+				<% if event.public %>
+					<div class="row">
+						<div class="col-md-4"><%= event.name %></div>
+						<div class="col-md-4"><%= event.date %></div>
+						<div class="col-md-4"><%= link_to "View", event_path(event) %></div>
+					</div>
+				<% end %>
 			<% end %>
-
+			<p><%= link_to "Contact", new_message_path(recipient: @profile.user.email) %> <%= @profile.name.capitalize %></p>
 		</div>
 	</div>
 </div>
