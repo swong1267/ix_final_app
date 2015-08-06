@@ -3,8 +3,18 @@
 	    <div class="col-lg-4 col-lg-offset-4 centered">
 				<h1>All Events</h1>
 				<%= link_to "New Event", new_event_path %></br>
-				<% unless @events == [nil] %>
-					<% @events.each do |event| %>
+
+				<h3>My Events</h3>
+				<% unless @my_events == [nil] %>
+					<% @my_events.each do |event| %>
+							<%= event.name %> |
+							<%= link_to "Show Event", event_path(event) %></br>
+					<% end %>
+				<% end %>
+
+				<h3>Public Events</h3>
+				<% unless @public_events == [nil] %>
+					<% @public_events.each do |event| %>
 							<%= event.name %> |
 							<%= link_to "Show Event", event_path(event) %></br>
 					<% end %>

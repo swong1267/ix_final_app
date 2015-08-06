@@ -1,11 +1,12 @@
 class EventsController < ApplicationController
   def index
-    @events = current_user.events
-    @events << Event.where(public: true)
+    @my_events = current_user.events
+    @public_events = Event.where(public: true && :user != current_user)
   end
 
   def show
     @event = Event.find(params[:id])
+    binding.pry
   end
 
   def new
@@ -23,9 +24,8 @@ class EventsController < ApplicationController
 
   def create
     @event = current_user.events.build(event_params)
-
     if @event.save
-      if params[:space_id]
+      if params[:space_id].present?
         redirect_to new_request_path(space_id: params[:space_id])
       else
         redirect_to event_path(@event)

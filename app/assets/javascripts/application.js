@@ -11,10 +11,9 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery.turbolinks
 //= require jquery_ujs
 //= require twitter/bootstrap
-//= require hover_pack
-//= require retina
 //= require turbolinks
 //= require_tree .
 
@@ -27,21 +26,21 @@ $('a[href*=#]:not([href=#])').click(function() {
         $('html,body').animate({
           scrollTop: target.offset().top - 50
         }, 800);
-        
+
         if (this.hash=="#section1") {
             $('.scroll-up').hide();
         }
         else {
             $('.scroll-up').show();
         }
-        
-        
+
+
         // activte animations in this section
         target.find('.animate').delay(1200).addClass("animated");
         setTimeout(function(){
             target.find('.animated').removeClass("animated");
         },2000);
-        
+
         return false;
       }
     }
