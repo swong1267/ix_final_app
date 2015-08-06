@@ -2,11 +2,9 @@ Rails.application.routes.draw do
 
   get 'welcome/index'
 
-  devise_for :users do
-    resources :events
-    resources :spaces
-    resources :messages
-  end
+  devise_for :users
+
+  resources :profiles
 
   resources :spaces do
     resources :reviews

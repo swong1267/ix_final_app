@@ -11,32 +11,34 @@
     </div>
     <div class="navbar-collapse collapse">
       <ul class="nav navbar-nav navbar-right">
-	      <li class="active">
-    		  <% if user_signed_in? %>
-    			  <%= link_to current_user.email, edit_user_registration_path %>
-    	    <% end %>
-        </li>
+     		<li class="active">
+     			<% if user_signed_in? %>
+    				<%= link_to current_user.email, edit_user_registration_path %>
+    			<% end %>
+     	  </li>
+
         <!--     <li class="active"><a href="index.html">HOME</a></li> -->
         <li><%= link_to "SPACES", spaces_path %></li>
         <li><%= link_to "EVENTS", events_path %></li>
         <li><%= link_to "REQUESTS", requests_path %></a></li>
         <li><%= link_to "MESSAGES", messages_path %></a></li>
         <li>
-      		<% if user_signed_in? %>
-        		<%= link_to 'MY PROFILE', edit_user_registration_path %>
+     			<% if user_signed_in? %>
+        		<%= link_to 'MY PROFILE', profile_path(current_user.profile) %>
         	<% else %>
         		<%= link_to "SIGN UP", new_user_registration_path %>
         	<% end %></a>
         </li>
+
       	<li class="active">
-      		<% if user_signed_in? %>
-            <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+      			<% if user_signed_in? %><%= link_to "Logout", destroy_user_session_path, method: :delete %>
       		<% else %>
       			<%= link_to "Login", new_user_session_path %>
-      	 <% end %>
+      	  <% end %>
       	</li>
       </ul>
     </div><!--/.nav-collapse -->
     <%= render 'layouts/alerts' %>
   </div>
 </div>
+
