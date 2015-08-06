@@ -231,8 +231,8 @@ DEPENDENCIES
   geocoder
   jbuilder (~> 2.0)
   jquery-rails
-  momentjs-rails (~> 2.9)!
   jquery-turbolinks
+  momentjs-rails (~> 2.9)!
   paperclip (~> 4.3)
   pg
   pry-rails

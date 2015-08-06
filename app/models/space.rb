@@ -10,6 +10,6 @@ class Space < ActiveRecord::Base
   geocoded_by :location
   after_validation :geocode
 
-  has_attached_file :avatar, :styles => { :medium => "350x350>", :thumb => "100x100>" }, :default_url => "/img/missingspace_:style.jpg"
+  has_attached_file :avatar, :styles => { :medium => "350x239>", :thumb => "100x100>" }, :default_url => "/img/missingspace_:style.jpg"
   validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
 end

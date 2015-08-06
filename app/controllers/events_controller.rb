@@ -17,7 +17,6 @@ class EventsController < ApplicationController
 
     if params[:space_id].present? 
       @spacename = Space.find(params[:space_id]).name
-    
     end
    
   end
@@ -25,6 +24,8 @@ class EventsController < ApplicationController
   def edit
     @event = Event.find(params[:id])
     can_change_object? @event
+    @spacename = Event.find(params[:id]).location
+
   end
 
   def create

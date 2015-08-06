@@ -60,13 +60,13 @@
 	</div><!-- /row -->
 
 	<div class="row mt">
-		<% @events.each do |event| %>
+		<% @events.last(5).each do |event| %>
 			<div class="col-lg-4 col-md-4 col-xs-12 desc">
 				<%= link_to image_tag(event.avatar(:medium)), event_path(event), class: "b-link-fade b-animate-go" %>
 
 				</a>
 				<p><%= link_to event.name, event_path(event) %> <b><p class="lead"><%=event.user.email %></b></p></p>
-				<p class="lead"><%= event.description %></p>
+				<p class="lead"><%= truncate(event.description, length: 150, separator: ' ') %></p>
 				<hr-d>
 			</div><!-- col-lg-4 -->
 		<% end %>
@@ -97,12 +97,13 @@
 	</div><!-- /row -->
 
 	<div class="row mt">
-		<% @spaces.each do |space| %>
+		<% @spaces.last(8).each do |space| %>
 			<div class="col-lg-4 col-md-4 col-xs-12 desc">
-				<%= link_to image_tag(space.avatar(:medium)), space_path(space), class: "b-link-fade b-animate-go" %>
+				<%= link_to image_tag(space.avatar(:medium)), space_path(space) %>
 				<p><%= link_to space.name, space_path(space) %> <b><p class="lead"><%=space.user.email %></b></p></p>
-				<p class="lead"><%= space.description %></p>
-				<hr-d>
+				<p class="lead"><%= truncate(space.description, length: 150, separator: ' ') %></p>
+				<br><br>
+				
 			</div><!-- col-lg-4 -->
 		<% end %>
 
