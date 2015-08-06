@@ -6,16 +6,28 @@
 			<%= link_to "Sent Mail", sent_mail_messages_path %>
 			</div>
 			<div class="col-lg-12">
-				<br><br>
-				<% unless @messages == [nil] %>
+				<div class="row">
+					<b>
+						<div class="col-md-2">From:</div>
+						<div class="col-md-8">Subject:</div>
+						<div class="col-md-2">Date:</div>
+					</b>
+				</div>
+				<div class="row">
 					<% @messages.each do |message| %>
-						<% unless message.sender == nil %>
-							<div class="col-md-2"><b>From:</b> <%= message.sender.email %></div>
-						<% end %>
+						<div class="col-md-2">
+							<% if message.sender == nil %>
+								Admin
+							<% else %>
+								<%= message.sender.email %>
+							<% end %>
+						</div>
 						<div class="col-md-8"><%= link_to message.subject, message_path(message) %></div>
 						<div class="col-md-2"><%= message.created_at %></div>
 					<% end %>
-				<% end %>
+				</div>
+
+				<br><br>
 			</div>
 		</div>
 	</div>

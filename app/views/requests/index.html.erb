@@ -7,10 +7,12 @@
 			<h3>Requests for my spaces:</h3>
 
 			<div class="row">
-				<div class="col-md-2">Sent from:</div>
-				<div class="col-md-2">Event:</div>
-				<div class="col-md-2">My Space:</div>
-				<div class="col-md-6 request-col">Request:</div>
+				<b>
+					<div class="col-md-2">Sent from:</div>
+					<div class="col-md-2">Event:</div>
+					<div class="col-md-2">My Space:</div>
+					<div class="col-md-6 request-col">Request:</div>
+				</b>
 			</div>
 			<% @received_requests.each do |request| %>
 				<div class="row">
@@ -32,10 +34,12 @@
 			<h3>My requests for spaces:</h3>
 
 			<div class="row">
-				<div class="col-md-2">Sent to:</div>
-				<div class="col-md-2">My Event:</div>
-				<div class="col-md-2">Space</div>
-				<div class="col-md-6 request-col">My Request:</div>
+				<b>
+					<div class="col-md-2">Sent to:</div>
+					<div class="col-md-2">My Event:</div>
+					<div class="col-md-2">Space</div>
+					<div class="col-md-6 request-col">My Request:</div>
+				</b>
 			</div>
 			<% @sent_requests.each do |request| %>
 				<div class="row">

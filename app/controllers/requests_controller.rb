@@ -15,7 +15,7 @@ class RequestsController < ApplicationController
     @space = Space.find(params[:space_id])
 
     @request = Request.new(request_params)
-    @request.event = @event
+    @request.event = Event.find(params[:request][:event_id])
     @request.space = @space
 
     if @request.save
@@ -46,7 +46,7 @@ class RequestsController < ApplicationController
   def deny
     @request = Request.find(params[:id])
     @request.denied!
-    send_denied_message @event
+    send_denied_message @request
     redirect_to requests_path
   end
 
@@ -58,10 +58,10 @@ class RequestsController < ApplicationController
     Message.create! recipient: event.user, subject: subject, body: body
   end
 
-  def send_denied_message @event_path
-    subject = "You're event " + event.name + " has been confirmed!"
-    body = event.space.user.email + " has accepted your request! "
-    Message.create! recipient: event.user, subject: subject, body: body
+  def send_denied_message(request)
+    subject = "You're event " + request.event.name + " has been denied."
+    body = request.space.user.email + " has denied your request! "
+    Message.create! recipient: request.event.user, subject: subject, body: body
   end
 
   def request_params
