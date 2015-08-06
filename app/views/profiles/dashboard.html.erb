@@ -81,16 +81,26 @@
 
 			<!-- Messages -->
 			<div class="row">
-				<div class="col-md-8 col-md-offset-4"><h3>Messages</h3></div>
-			</div>			<div class="row">
+				<div class="col-md-8 col-md-offset-4">
+					<h3>
+						Messages
+						<% if @unread > 0 %>
+						 (Unread: <%= @unread %>)
+						<% end %>
+					</h3>
+				</div>
+			</div>
+			<div class="row">
 				<div class="col-md-2 col-md-offset-4">Sender:</div>
 				<div class="col-md-4">Subject:</div>
 			</div>
 			<% @messages.each do |message| %>
 				<div class="row">
+					<% if message.unread %><b><% end %>
 					<div class="col-md-2 col-md-offset-4"><%= message.sender.profile.name.capitalize %></div>
 					<div class="col-md-4"><%= message.subject %></div>
 					<div class="col-md-2"><%= link_to "View", message_path(message) %></div>
+					<% if message.unread %></b><% end %>
 				</div>
 			<% end %>
 			<div class="row">
