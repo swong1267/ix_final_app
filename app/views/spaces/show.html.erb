@@ -44,7 +44,8 @@
 			<br>
 			<h3>Reviews</h3>
 				<% @space.reviews.each do |review| %>
-					<%= review.user.email %>: <%= review.body %>
+					<%= review.user.email %> | Rating: <%= review.rating %><br>
+					 <%= review.body %><br>
 					<% if review.user == current_user %>
 						| <%= link_to "Delete Review", space_review_path(@space, review), method: :delete, data: { confirm: "Are you sure?" } %>
 					<% end %>
