@@ -17,7 +17,9 @@
 			</p>
 
 			<!-- Most Popular Space -->
-			<p>Most Popular Space: <%= @most_popular_space.name %></p>
+			<% unless @most_popular_space == nil %>
+				<p>Most Popular Space: <%= @most_popular_space.name %></p>
+			<% end %>
 
 			<!-- Upcoming Events -->
 			<p>Upcoming Events: <%= @upcoming_events.count %></p>

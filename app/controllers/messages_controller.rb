@@ -6,8 +6,7 @@
   def show
     @message = Message.find(params[:id])
     @message.unread = false;
-        binding.pry
-@message.save
+    @message.save
   end
 
   def new
@@ -22,7 +21,6 @@
     else
       render 'new'
     end
-    binding.pry
   end
 
   def destroy
