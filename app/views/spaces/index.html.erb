@@ -1,19 +1,16 @@
 <div id="white">
   <div class="container">
 		<div class="row">
-  			<div class="col-lg-4 col-lg-offset-4 centered">
+			<div class="col-lg-4 col-lg-offset-4 centered">
 				<h1>All Spaces</h1><br>
 				<p><%= link_to "Add Your Unused Space", new_space_path, class: 'btn btn-primary' %></p>
-					<br>
+				<br>
 			</div>			<!-- col lg 4 -->
 		</div>
+
 		<div class="row">
-
 			<div class="col-md-7">
-
-
-				
-				<% @spaces.each do |space| %>	
+				<% @spaces.each do |space| %>
 					<div class="col-md-6">
 						<%= link_to image_tag(space.avatar(:medium), :size => "260x180"), space_path(space) %><br>
 						<h4><%= link_to space.name, space_path(space) %></h4>
@@ -22,37 +19,35 @@
 					</div>
 				<% end %>
 			</div>
-			
-			
-	<div class="col-md-5">
-		<div id='map'></div>
-			<script>
-				L.mapbox.accessToken = 'pk.eyJ1IjoiY3htaSIsImEiOiJiOGVjYjQ1OWQ4ZjliYjUzMDU5YWJkMDJhNjYzZDUwYyJ9.qdfY6hSkrruwSL5v1URWrw';
 
-				var map = L.mapbox.map('map', 'mapbox.streets')
-				    .setView([-33.92947, 18.41071], 11); // [latitude, long], zoom value
+			<div class="col-md-5">
+				<div id='map'></div>
+					<script>
+						L.mapbox.accessToken = 'pk.eyJ1IjoiY3htaSIsImEiOiJiOGVjYjQ1OWQ4ZjliYjUzMDU5YWJkMDJhNjYzZDUwYyJ9.qdfY6hSkrruwSL5v1URWrw';
 
-				var myLocations = L.mapbox.featureLayer()
-				          .loadURL('/spaces.json')
-				          .addTo(map)
+						var map = L.mapbox.map('map', 'mapbox.streets')
+						    .setView([-33.92947, 18.41071], 11); // [latitude, long], zoom value
 
-
-				// Need to make sure all locations are loaded
-				myLocations.on('ready', function(e) {
-				  // For each layer, do:
-				  myLocations.eachLayer(function(layer) {
-
-				    // Custom tooltips
-				    var content = '<b>' + layer.feature.properties.name;
-
-				    // Add popup to layer
-				    layer.bindPopup(content);
-				  });
-				});
-			</script>
-		</div> 	<!-- col md 5 -->
+						var myLocations = L.mapbox.featureLayer()
+						          .loadURL('/spaces.json')
+						          .addTo(map)
 
 
+						// Need to make sure all locations are loaded
+						myLocations.on('ready', function(e) {
+						  // For each layer, do:
+						  myLocations.eachLayer(function(layer) {
+
+						    // Custom tooltips
+						    var content = '<b>' + layer.feature.properties.name;
+
+						    // Add popup to layer
+						    layer.bindPopup(content);
+						  });
+						});
+					</script>
+				</div> 	<!-- col md 5 -->
+			</div>
+		</div>
 	</div>
-
 </div>

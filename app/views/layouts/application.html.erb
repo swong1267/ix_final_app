@@ -1,29 +1,18 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>FinalApp</title>
-	<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-	<link href='https://api.mapbox.com/mapbox.js/v2.2.1/mapbox.css' rel='stylesheet' />
-	<script src='https://api.mapbox.com/mapbox.js/v2.2.1/mapbox.js'></script>
+	<head>
+	  <title>FinalApp</title>
+		<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+		<link href='https://api.mapbox.com/mapbox.js/v2.2.1/mapbox.css' rel='stylesheet' />
+		<script src='https://api.mapbox.com/mapbox.js/v2.2.1/mapbox.js'></script>
 		<%= csrf_meta_tags %>
+	</head>
 
-</head>
-<body>
-
-<%= render 'layouts/header' %>
-<div id="error"><%= flash[:error] %></div>
-
-
-<%= yield %>
-
-	<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-
-
-<%= render 'layouts/footer' %>
-
-
-
-
-
-</body>
+	<body>
+		<%= render 'layouts/header' %>
+		<div id="error"><%= flash[:error] %></div>
+		<%= yield %>
+		<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+		<%= render 'layouts/footer' %>
+	</body>
 </html>

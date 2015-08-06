@@ -3,7 +3,6 @@
 	<% if @request.errors.any? %>
 	  <div id="error_explanation">
 	    <h2><%= pluralize(@request.errors.count, "error") %> prohibited this request from being saved:</h2>
-
 	    <ul>
 	    <% @request.errors.full_messages.each do |msg| %>
 	      <li><%= msg %></li>
@@ -11,7 +10,7 @@
 	    </ul>
 	  </div>
 	<% end %>
-	
+
 	<p>
 		<%= f.label "Pick the event: " %>
 		<%= f.select :event_id, options_for_select(@events.map{ |e| [e.name, e.id] }) %>

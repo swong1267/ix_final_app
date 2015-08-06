@@ -1,29 +1,28 @@
 <%= form_for @message do |f| %>
-	
+
 	<% if @message.errors.any? %>
 	  <div id="error_explanation">
 	    <h2><%= pluralize(@message.errors.count, "error") %> prohibited this message from being saved:</h2>
-
 	    <ul>
-	    <% @message.errors.full_messages.each do |msg| %>
-	      <li><%= msg %></li>
-	    <% end %>
+		    <% @message.errors.full_messages.each do |msg| %>
+		      <li><%= msg %></li>
+		    <% end %>
 	    </ul>
 	  </div>
 	<% end %>
 
-	<p><%= f.label "Send to:" %> <br>
+	<p><%= f.label "Send to:" %><br>
 	<%= f.text_field :recipient, value: (@message.new_record? ? params[:recipient] : @message.recipient) %></p>
-	
+
 	<p><%= f.label :subject %><br>
 	<%= f.text_field :subject, value: (@message.new_record? ? params[:subject] : @message.subject) %></p>
-	
+
 	<p><%= f.label :body %><br>
 	<%= f.text_area :body %></p>
 
 	<%= f.submit %>
 	<br><br>
-	
+
 	<%= link_to "Back", messages_path %>
 
 <% end %>

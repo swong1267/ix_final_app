@@ -21,24 +21,23 @@
 						<% @messages.each do |message| %>
 				      <tr>
 				        <td><% if message.unread %><b><% end %>
-				        <% if message.sender == nil %>
-									Admin
-								<% else %>
-									<%= message.sender.email %>
-								<% end %>
-							</td>
-			        <td><% if message.unread %><b><% end %>
-								<%= link_to message.subject, message_path(message) %></td>
-			        <td><% if message.unread %><b><% end %>
-								<%= message.created_at.to_date %></td>
-			        <td><% if message.unread %><b><% end %>
-
-				        <% unless message.sender == nil %>
-									<%= link_to "Reply", new_message_path(recipient: message.sender.email, subject: "RE: " + message.subject) %> |
-								<% end %> <%= link_to "Delete", message_path(message), method: :delete, data: { confirm: "Are you sure you want to delete this message? " } %>
-					    <% if message.unread %></b><% end %>
-							</td>
-				     </tr>
+					        <% if message.sender == nil %>
+										Admin
+									<% else %>
+										<%= message.sender.email %>
+									<% end %>
+								</td>
+				        <td><% if message.unread %><b><% end %>
+									<%= link_to message.subject, message_path(message) %></td>
+				        <td><% if message.unread %><b><% end %>
+									<%= message.created_at.to_date %></td>
+				        <td><% if message.unread %><b><% end %>
+					        <% unless message.sender == nil %>
+										<%= link_to "Reply", new_message_path(recipient: message.sender.email, subject: "RE: " + message.subject) %> |
+									<% end %> <%= link_to "Delete", message_path(message), method: :delete, data: { confirm: "Are you sure you want to delete this message? " } %>
+						    	<% if message.unread %></b><% end %>
+								</td>
+				     	</tr>
 				 		<% end %>
 				  </tbody>
 				</table>
