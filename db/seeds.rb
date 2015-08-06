@@ -21,12 +21,12 @@ cam = User.create! email: "cam@cam.com", password: "12345678", password_confirma
 aobo = User.create! email: "aobo@aobo.com", password: "12345678", password_confirmation: "12345678"
 tim = User.create! email: "tim@tim.com", password: "12345678", password_confirmation: "12345678"
 
-ianP = Profile.create! username: "ian", public: false, user: ian, earnings: 20
-brianP = Profile.create! username: "brian", public: false, user: brian, earnings: 0
-ericaP = Profile.create! username: "erica", public: false, user: erica, earnings: 100
-aoboP = Profile.create! username: "aobo", public: false, user: aobo, earnings: 350
-timP = Profile.create! username: "tim", public: false, user: cam, earnings: 10
-camP = Profile.create! username: "cam", public: false, user: tim, earnings: 15
+ianP = Profile.create! username: "ian", public: false, user: ian, earnings: 20, name: "ian", bio: "I'm ian"
+brianP = Profile.create! username: "brian", public: false, user: brian, earnings: 0, name: "brian", bio: "I'm brian"
+ericaP = Profile.create! username: "erica", public: false, user: erica, earnings: 100, name: "ian", bio: "I'm erica"
+aoboP = Profile.create! username: "aobo", public: false, user: aobo, earnings: 350, name: "aobo", bio: "I'm aobo"
+timP = Profile.create! username: "tim", public: false, user: cam, earnings: 10, name: "cam", bio: "I'm cam"
+camP = Profile.create! username: "cam", public: false, user: tim, earnings: 15, name: "tim", bio: "I'm tim"
 
 ian_space = Space.create! name: "Once", category: "Room", description: "hipster hostel", location: "73 Kloof Street, Gardens, Cape Town, South Africa", price: 200, capacity: 40, user: ian
 brian_space = Space.create! name: "iX House", category: "Building", description: "movie room with fat sacsl", location: "19 Park Rd, Cape Town, South Africa", price: 100, capacity: 20, user: brian
@@ -40,6 +40,7 @@ brian_event2 = Event.create! name: "kombucha!!", location: "joburg", people: 40,
 
 Review.create! user: cam, space: ian_space, rating: 4, body: "meh"
 Review.create! user: aobo, space: erica_space, rating: 5, body: "ERICA I LOVE YOU", reply: "thanks"
+Review.create! user: erica, space: brian_space, rating: 1, body: "aight", reply: "thanks"
 Review.create! user: tim, space: brian_space, rating: 4, body: "meh"
 
 Message.create! sender: ian, recipient: cam, body: "have a party", subject: "rent my space"
