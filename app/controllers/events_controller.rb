@@ -1,7 +1,10 @@
 class EventsController < ApplicationController
   def index
     @my_events = current_user.events
-    @public_events = Event.where(public: true && :user != current_user)
+    @public_events = Event.where(public: true, user: !current_user)
+    @all_events = Event.where("public OR user_id = ?", current_user.id)
+
+
   end
 
   def show

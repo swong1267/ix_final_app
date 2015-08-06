@@ -16,7 +16,7 @@
 	<%= f.text_field :recipient, value: (@message.new_record? ? params[:recipient] : @message.recipient) %></p>
 	
 	<p><%= f.label :subject %><br>
-	<%= f.text_field :subject %></p>
+	<%= f.text_field :subject, value: (@message.new_record? ? params[:subject] : @message.subject) %></p>
 	
 	<p><%= f.label :body %><br>
 	<%= f.text_area :body %></p>
