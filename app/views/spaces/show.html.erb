@@ -11,7 +11,7 @@
 
 			<div class="row">
 				<div class="col-lg-6">
-					<p> <%= image_tag @space.avatar.url(:medium) %> </p>
+					<p> <%= image_tag @space.photo, :size => "350x239" %> </p>
 				<p>
 				<% if can_crud_space?(@space) %>
 					<%= link_to "Edit Space", edit_space_path(@space) %> |

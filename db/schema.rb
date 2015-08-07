@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150807092105) do
+ActiveRecord::Schema.define(version: 20150807140802) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,6 +32,8 @@ ActiveRecord::Schema.define(version: 20150807092105) do
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
+    t.string   "photo"
+    t.string   "string"
   end
 
   add_index "events", ["space_id"], name: "index_events_on_space_id", using: :btree
@@ -104,6 +106,7 @@ ActiveRecord::Schema.define(version: 20150807092105) do
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
+    t.string   "photo"
   end
 
   add_index "spaces", ["user_id"], name: "index_spaces_on_user_id", using: :btree
