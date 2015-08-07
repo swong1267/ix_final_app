@@ -14,12 +14,10 @@ Space.delete_all
 Profile.delete_all
 User.delete_all
 
-
 Peter = User.create! email: "peter@gmail.com", password: "12345678", password_confirmation: "12345678", first_name: "Peter", last_name: "Smith"
 Tracy = User.create! email: "tracy@gmail.com", password: "12345678", password_confirmation: "12345678", first_name: "Tracy", last_name: "Doe"
 Sally = User.create! email: "sally@gmail.com", password: "12345678", password_confirmation: "12345678", first_name: "Sally", last_name: "Thompson"
 Harry = User.create! email: "harry@gmail.com", password: "12345678", password_confirmation: "12345678", first_name: "Harry", last_name: "Roberts"
-
 
 PeterP = Profile.create! first_name: "Peter", public: false, user: Peter, earnings: 20, last_name: "Peter", bio: "I run a live/work space for artists here in Cape Town, as well as another arts complex with a gallery, art studios, and dance studio. I like to have fun with life and keep positive people around me all the time."
 TracyP = Profile.create! first_name: "Tracy", public: false, user: Tracy, earnings: 15, last_name: "Tracy", bio: "I'm a modern dance choreographer/performer/educator. I've lived in Cape Town since 1996 and have seen all of its changes. I love the rich cultural diversity of Cape Town and its creative spirit."
@@ -36,11 +34,11 @@ TSpace1 = Space.create! name: "Mzanzi's", category: "Room", description: "We're 
 TSpace2 = Space.create! name: "Community Center", category: "Building", description: "Flexible space that includes and ampitheater, ceramics facilities, and a gathering space.", location: "Langa, Cape Town", price: 150, capacity: 60, user: Tracy
 # TSpace3 = Space.create! name: "Community Center", category: "Display", description: "We would love to provide local artists the opportunity to display their work and increase their visibility", location: "Langa, Cape Town", price: 20, capacity: 40, user: Tracy
 
-
 SEvent1 = Event.create! name: "Weekly Yoga Class", location: "Cape Town", people: 15, category: "Workshop/Class", description: "Join me for yoga at the end of a long week to help destress", public: true, user: Sally, date: DateTime.parse("2/8/2015 17:00"), space: PSpace3
 SEvent2 = Event.create! name: "Ray's 21st Birthday!", location: "Cape Town", people: 25, category: "Gathering", description: "I'm throwing my friend Ray a surprise birthday party", public: false, user: Sally, date: DateTime.parse("10/8/2015 17:00"), space: PSpace3
-SEvent3 = Event.create! name: "Art Studio Hours", location: "Cape Town", people: 1, category: "Personal", description: "Looking for a space to finish some art pieces", public: false, user: Sally, date: DateTime.parse("11/8/2015 17:00"), space: PSpace3
+SEvent3 = Event.create! name: "Art Studio Hours", location: "Cape Town", people: 1, category: "Personal", description: "Looking for a space to finish some art pieces", public: false, user: Sally, date: DateTime.parse("17/8/2015 17:00"), space: PSpace3
 SEvent4 = Event.create! name: "Volunteers4Change", location: "Cape Town", people: 50, category: "Gathering", description: "I want to bring together local volunteers to knit scarves for shelters", public: true, user: Sally, date: DateTime.parse("11/8/2015 17:00")
+
 
 HEvent1 = Event.create! name: "Going Away Party", location: "Joburg", people: 50, category: "Gathering", description: "Celebration for my best friend's going away", public: false, user: Harry, date: DateTime.parse("15/8/2015 17:00"), space: PSpace3
 HEvent2 = Event.create! name: "Entrepreneur Workshop", location: "Cape Town", people: 20, category: "Workshop/Class", description: "A workshop to help budding entrepreneurs.", public: true, user: Harry, date: DateTime.parse("12/8/2015 17:00"), space: PSpace3
