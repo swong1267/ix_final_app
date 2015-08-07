@@ -12,7 +12,7 @@
 			<div class="col-md-7">
 				<% @spaces.each do |space| %>
 					<div class="col-md-6">
-						<%= link_to image_tag(space.avatar(:medium), :size => "260x180"), space_path(space) %><br>
+						<%= link_to image_tag(space.photo, :size => "260x180"), space_path(space) %><br>
 						<h4><%= link_to space.name, space_path(space) %></h4>
 						<p><%= truncate(space.description, length: 80, separator: ' ') %></p>
 						<br>

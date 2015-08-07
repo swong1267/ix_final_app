@@ -4,7 +4,7 @@
 			<h1><%= @event.name %></h1>
 			<h5>Created by <%= @event.user.email %></h3>
 			<p class="lead">A <b><%= @event.category %></b> for <b><%= @event.people %></b> people in <b><%= @event.location %></b></p>
-			<p><%= image_tag @event.avatar.url(:medium) %></p>
+			<p><%= image_tag @event.photo, :size => "350x239" %></p>
 			
 			
 
