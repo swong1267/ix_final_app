@@ -17,7 +17,8 @@ class ProfilesController < ApplicationController
   end
 
   def dashboard
-    @profile = Profile.find(params[:id])
+    # @profile = Profile.find(params[:id])
+    @profile = current_user.profile
     @spaces = @profile.user.spaces
     @events = @profile.user.events
     @messages = Message.where(recipient: @profile.user).order("created_at DESC")
