@@ -37,17 +37,24 @@ TSpace2 = Space.create! name: "Community Center", category: "Building", descript
 # TSpace3 = Space.create! name: "Community Center", category: "Display", description: "We would love to provide local artists the opportunity to display their work and increase their visibility", location: "Langa, Cape Town", price: 20, capacity: 40, user: Tracy
 
 
-SEvent1 = Event.create! name: "Weekly Yoga Class", location: "Cape Town", people: 15, category: "Workshop/Class", description: "Join me for yoga at the end of a long week to help destress", public: true, user: Sally, date: DateTime.parse("2/8/2015 17:00")
-SEvent2 = Event.create! name: "Ray's 21st Birthday!", location: "Cape Town", people: 25, category: "Gathering", description: "I'm throwing my friend Ray a surprise birthday party", public: false, user: Sally, date: DateTime.parse("10/8/2015 17:00"), space: PSpace2
-SEvent3 = Event.create! name: "Art Studio Hours", location: "Cape Town", people: 1, category: "Personal", description: "Looking for a space to finish some art pieces", public: false, user: Sally, date: DateTime.parse("11/8/2015 17:00")
+SEvent1 = Event.create! name: "Weekly Yoga Class", location: "Cape Town", people: 15, category: "Workshop/Class", description: "Join me for yoga at the end of a long week to help destress", public: true, user: Sally, date: DateTime.parse("2/8/2015 17:00"), space: PSpace3
+SEvent2 = Event.create! name: "Ray's 21st Birthday!", location: "Cape Town", people: 25, category: "Gathering", description: "I'm throwing my friend Ray a surprise birthday party", public: false, user: Sally, date: DateTime.parse("10/8/2015 17:00"), space: PSpace3
+SEvent3 = Event.create! name: "Art Studio Hours", location: "Cape Town", people: 1, category: "Personal", description: "Looking for a space to finish some art pieces", public: false, user: Sally, date: DateTime.parse("11/8/2015 17:00"), space: PSpace3
+SEvent4 = Event.create! name: "Volunteers4Change", location: "Cape Town", people: 50, category: "Gathering", description: "I want to bring together local volunteers to knit scarves for shelters", public: true, user: Sally, date: DateTime.parse("11/8/2015 17:00")
 
-HEvent1 = Event.create! name: "Going Away Party", location: "Joburg", people: 50, category: "Gathering", description: "Celebration for my best friend's going away", public: false, user: Harry, date: DateTime.parse("15/8/2015 17:00")
-HEvent2 = Event.create! name: "Entrepreneur Workshop", location: "Cape Town", people: 20, category: "Workshop/Class", description: "A workshop to help budding entrepreneurs.", public: true, user: Harry, date: DateTime.parse("12/8/2015 17:00")
-HEvent3 = Event.create! name: "Slam Poetry Performance", location: "Cape Town", people: 100, category: "Performance", description: "Come see UCT students perform original slap poetry", public: true, user: Harry, date: DateTime.parse("20/8/2015 17:00")
+HEvent1 = Event.create! name: "Going Away Party", location: "Joburg", people: 50, category: "Gathering", description: "Celebration for my best friend's going away", public: false, user: Harry, date: DateTime.parse("15/8/2015 17:00"), space: PSpace3
+HEvent2 = Event.create! name: "Entrepreneur Workshop", location: "Cape Town", people: 20, category: "Workshop/Class", description: "A workshop to help budding entrepreneurs.", public: true, user: Harry, date: DateTime.parse("12/8/2015 17:00"), space: PSpace3
+HEvent3 = Event.create! name: "Slam Poetry Performance", location: "Cape Town", people: 100, category: "Performance", description: "Come see UCT students perform original slap poetry", public: true, user: Harry, date: DateTime.parse("20/8/2015 17:00"), space: PSpace3
 
-Review.create! user: Sally, space: PSpace2, rating: 5, body: "Loved using the firepit to turn my celebration into a braai! Once's outdoor area has great atmosphere and is very accomodating."
-Review.create! user: Tracy, space: PSpace2, rating: 4, body: "Enjoyed the fun lighting and staff in the outdoor area, but it was a little too cold"
-Review.create! user: Harry, space: PSpace2, rating: 5, body: "Full-kitchen was larger and cleaner than I hoped"
+Review.create! user: Sally, space: PSpace3, rating: 5, body: "Loved using the outdoor area for our celebration"
+Review.create! user: Tracy, space: PSpace3, rating: 4, body: "Enjoyed the fun lighting and space, but it was a little too cold"
+Review.create! user: Harry, space: PSpace3, rating: 5, body: "The classrooms were the perfect size for my workshop!"
+
+Message.create! sender: Tracy, recipient: Peter, body: "Hi! Can you tell me more about your space?", subject: "International School of Cape Town"
+Message.create! sender: Harry, recipient: Peter, body: "Is the price negotiable?", subject: "Negotiable Price"
+
+Request.create!  space: PSpace1, event: HEvent1, body: "I want to throw a party"
+
 
 
 ian = User.create! email: "ian@ian.com", password: "12345678", password_confirmation: "12345678"
