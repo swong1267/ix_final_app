@@ -1,5 +1,10 @@
 class RegistrationsController < Devise::RegistrationsController
 
+
+  def after_sign_up_path_for(profile)
+    new_profile_path
+  end
+
   private
 
   def sign_up_params

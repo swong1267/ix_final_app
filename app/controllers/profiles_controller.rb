@@ -13,7 +13,7 @@ class ProfilesController < ApplicationController
   def create
     @profile = Profile.create! first_name: current_user.first_name, last_name: current_user.last_name, user: current_user
     @profile.save
-    redirect_to profile_path(@profile)
+    redirect_to dashboard_profile_path(@profile)
   end
 
   def dashboard
