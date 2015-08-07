@@ -151,5 +151,7 @@ td {
   vertical-align: middle;
 }
 
-
+.alert-notification {
+	margin-top: 50px;
+}
 

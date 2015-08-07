@@ -13,6 +13,9 @@
 
 	<body>
 		<%= render 'layouts/header' %>
+		<div class="alert-notification"><%= render 'layouts/alerts' %></div>
+		
+
 		<div id="error"><%= flash[:error] %></div>
 		<%= yield %>
 		<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
