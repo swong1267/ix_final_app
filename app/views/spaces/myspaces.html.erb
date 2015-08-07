@@ -2,7 +2,7 @@
 	<div class="container">
 	  <div class="col-lg-12 centered">
 	  <h1>My Spaces</h1>
-	 
+
 
 
                         <div class="panel-body">
@@ -12,7 +12,7 @@
 									<div class="list-group-item">
 										<div class="row">
 											<div class="col-xs-3">
-												<%= image_tag(space.avatar(:medium), :size => "100x80") %>
+												<%= image_tag(space.photo, :size => "100x80") %>
 											</div>
 											<div class="col-xs-3 vertical-center">
 												<b><%= link_to space.name, space_path(space) %></b><br>
@@ -24,7 +24,7 @@
 												<%= truncate(space.description, length: 200, separator: ' ') %>
 											</div>
 											<div class="col-xs-3"><br>
-															
+
 																<%= link_to '<i class="glyphicon glyphicon-edit"></i> Edit'.html_safe, edit_space_path(space) %>
 																<br>
 															<%= link_to '<i class="glyphicon glyphicon-remove"></i> Delete'.html_safe, space_path(space), method: :delete, data: { confirm: "Are you sure you want to delete this space?" } %>
@@ -33,12 +33,12 @@
 									</div>
 							<% end %>
 
-					
-					
+
+
 								<%= link_to "Add New Space", new_space_path, class: "list-group-item" %>
 
                             </div>
-	                           
+
                         </div>
                         <!--/panel-body-->
 
