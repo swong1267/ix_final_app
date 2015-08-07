@@ -5,17 +5,15 @@
 			<h5>Created by <%= @event.user.email %></h3>
 			<p class="lead">A <b><%= @event.category %></b> for <b><%= @event.people %></b> people in <b><%= @event.location %></b></p>
 			<p><%= image_tag @event.avatar.url(:medium) %></p>
-			
-			
 
 			<% unless @event.space == nil %>
 				<p class="lead">This event has been confirmed for<% if @event.date.present? %>
 				<%= @event.date %>
-			<% end %> at <%= @event.space.name %></p>
+			<% end %> at <%= link_to @event.space.name, space_path(@event.space) %></p>
 			<% end %>
 
 			<p><%= @event.description %></p>
-			
+
 			<% if @event.user == current_user %>
 				<p><small>Public (only you can see this):
 					<% if @event.public %>
@@ -35,7 +33,7 @@
 				<% end %>
 				<%= link_to "Back", events_path %>
 			</p>
-			
+
 		</div>
 	</div>
 </div>

@@ -33,7 +33,12 @@
 					<% @space.reviews.each do |review| %>
 						<% @avg_rating += review.rating %>
 					<% end %>
-					<%= (@avg_rating/@space.reviews.count).round(2) %> Stars
+					<% @avg_rating /= @space.reviews.count %>
+					<% if @avg_rating > 0 %>
+						<%= (@avg_rating/@space.reviews.count).round(2) %> Stars
+					<% else %>
+						No Ratings yet!
+					<% end %>
 				</h5>
 
                         <div class="panel-body">
