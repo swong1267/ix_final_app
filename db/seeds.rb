@@ -25,7 +25,6 @@ SallyP = Profile.create! username: "Sally", public: false, user: Sally, earnings
 Joe = Profile.create! username: "Joe", public: false, user: Joe, earnings: 0, name: "Joe", bio: "I've been in Cape Town for over 10 years and have loved every minute of it! When I'm not home, I'm off traveling to some amazing places all over the world. I enjoy running, yoga, scuba diving and enjoying an amazing glass of wine here, there and everywhere! :)"
 
 
-
 ian = User.create! email: "ian@ian.com", password: "12345678", password_confirmation: "12345678"
 brian = User.create! email: "brian@brian.com", password: "12345678", password_confirmation: "12345678"
 erica = User.create! email: "erica@erica.com", password: "12345678", password_confirmation: "12345678"

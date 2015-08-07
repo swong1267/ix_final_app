@@ -6,6 +6,16 @@ class ProfilesController < ApplicationController
     @avg_rating = 0.0
   end
 
+  def new
+    create
+  end
+
+  def create
+    @profile = Profile.create! first_name: current_user.first_name, last_name: current_user.last_name, user: current_user
+    @profile.save
+    redirect_to profile_path(@profile)
+  end
+
   def dashboard
     @profile = Profile.find(params[:id])
     @spaces = @profile.user.spaces
