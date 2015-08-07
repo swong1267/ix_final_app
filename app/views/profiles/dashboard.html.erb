@@ -11,19 +11,7 @@
         <div class="col-md-12">
 
             <!-- column 2 -->
-            <ul class="list-inline pull-right">
-                <li><a href="#"><i class="glyphicon glyphicon-cog"></i></a></li>
-                <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-comment"></i><span class="count">3</span></a>
-                    <ul class="dropdown-menu" role="menu">
-                        <li><a href="#">1. Is there a way..</a></li>
-                        <li><a href="#">2. Hello, admin. I would..</a></li>
-                        <li><a href="#"><strong>All messages</strong></a></li>
-                    </ul>
-                </li>
-                <li><a href="#"><i class="glyphicon glyphicon-user"></i></a></li>
-                <li><a title="Add Widget" data-toggle="modal" href="#addWidgetModal"><span class="glyphicon glyphicon-plus-sign"></span> Add Widget</a></li>
-            </ul>
-            <hr>
+           <br>
 
             <div class="row">
                 <!-- center left-->
@@ -41,15 +29,9 @@
                         		<% @spaces.each do |space| %>
 
 									<div class="list-group-item"><%= link_to space.name, space_path(space) %>
-<<<<<<< HEAD
-									<span class="badge pull-right"><%= space.requests.where(status: 0).count %> requests</span>
-						
-									</div>
-					
-=======
+
 									<span class="badge pull-right"><%= space.requests.where(status: 0).count %> requests</span></div>
 
->>>>>>> 2123e56d5f8dcccdff57ba8f7f8c447d056afbb5
 								<% end %>
 								<%= link_to "Add New Space", new_space_path, class: "list-group-item" %>
 
@@ -242,123 +224,7 @@
 
         </div>
         <!--/col-span-9-->
-    </div>
+    </div> <!-- -->
 </div>
-
-
-
-
-
-	<div class="container">
-    <div class="col-lg-12 centered">
-			<h1>Dash</h1>
-			<p>Email: <%= @profile.user.email %>
-			</br>
-
-
-			<!-- Cool bar at top of dash thingy -->
-
-			<!-- Earnings to Date -->
-			<p>Earnings to Date:
-				<% @past_events.each do |event| %>
-					$<% @current_earnings += event.space.price %>
-				<% end %>
-				<%= @current_earnings %>
-			</p>
-
-			<!-- Most Popular Space -->
-			<% unless @most_popular_space == nil %>
-				<p>Most Popular Space: <%= @most_popular_space.name %></p>
-			<% end %>
-
-			<!-- Upcoming Events -->
-			<p>Upcoming Events: <%= @upcoming_events.count %></p>
-
-			<!-- Total Requests -->
-			<p>Pending Requests: <%= @profile.user.space_requests.count %> </p>
-
-			<!-- Spaces -->
-			<div class="row">
-				<div class="col-md-4"><h3>My Spaces</h3></div>
-			</div>
-			<div class="row">
-				<div class="col-md-2">Space:</div>
-				<div class="col-md-2">Number of Requests:</div>
-			</div>
-			<% @spaces.each do |space| %>
-				<div class="row">
-					<div class="col-md-2"><%= space.name %></div>
-					<div class="col-md-2"><%= space.requests.where(status: 0).count %></div>
-				</div>
-			<% end %>
-			<br><br>
-
-
-			<!-- Events -->
-			<div class="row">
-				<div class="col-md-4"><h3>My Events</h3></div>
-			</div>
-			<div class="row">
-				<div class="col-md-2">Event:</div>
-				<div class="col-md-2">Number of Requests:</div>
-			</div>
-			<% @events.each do |event| %>
-				<div class="row">
-					<div class="col-md-2"><%= event.name %></div>
-					<div class="col-md-2"><%= event.requests.count %></div>
-				</div>
-			<% end %>
-			<br><br>
-
-
-			<!-- Requests -->
-			<div class="row">
-				<div class="col-md-8 col-md-offset-4"><h3>Requests</h3></div>
-			</div>
-			<div class="row">
-				<div class="col-md-2 col-md-offset-4">Requester:</div>
-				<div class="col-md-4">Space Requested:</div>
-			</div>
-			<% @requests.each do |request| %>
-				<div class="row">
-					<div class="col-md-2 col-md-offset-4"><%= request.event.user.profile.first_name.capitalize %></div>
-					<div class="col-md-4"><%= request.space.name %></div>
-					<div class="col-md-2"><%= link_to "View", requests_path %></div>
-				</div>
-			<% end %>
-			<div class="row">
-					<div class="col-md-2 col-md-offset-4"><%= link_to "See all", requests_path %></div>
-			</div>
-
-
-			<!-- Messages -->
-			<div class="row">
-				<div class="col-md-8 col-md-offset-4">
-					<h3>
-						Messages
-						<% if @unread > 0 %>
-						 (Unread: <%= @unread %>)
-						<% end %>
-					</h3>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-md-2 col-md-offset-4">Sender:</div>
-				<div class="col-md-4">Subject:</div>
-			</div>
-			<% @messages.each do |message| %>
-				<div class="row">
-					<% if message.unread %><b><% end %>
-					<div class="col-md-2 col-md-offset-4"><%= message.sender.profile.name.capitalize %></div>
-					<div class="col-md-4"><%= message.subject %></div>
-					<div class="col-md-2"><%= link_to "View", message_path(message) %></div>
-					<% if message.unread %></b><% end %>
-				</div>
-			<% end %>
-			<div class="row">
-					<div class="col-md-2 col-md-offset-4"><%= link_to "See all", messages_path %></div>
-			</div>
-
-		</div>
-	</div>
-</div>
+</div> <!-- white -->
+	

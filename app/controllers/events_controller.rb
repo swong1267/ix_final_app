@@ -30,7 +30,7 @@ class EventsController < ApplicationController
   end
 
   def myevents
-    @event = Event.where(user_id: current_user.id).order(created_at: :desc)
+    @events = Event.where(user_id: current_user.id).order(created_at: :desc)
 
   end
 

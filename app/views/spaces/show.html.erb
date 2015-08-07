@@ -1,62 +1,83 @@
 <div id="white">
 	<div class="container">
-    <div class="col-lg-4 col-lg-offset-4 centered">
+   		 <div class="col-lg-12 centered">
 			<h1><%= @space.name %></h1>
 			<h5>Space Owner: <%= @space.user.email %></h5>
-			<h5>Request space for: <%= link_to "Existing Event", new_space_request_path(@space) %> or <%= link_to "New Event", new_space_event_path(@space) %></h5>
+			<%= render 'modal' %>
+			<br>
+			Request for <%= link_to "Existing Event", new_space_request_path(@space) %> or <%= link_to "New Event", new_space_event_path(@space) %><br><br>
 		</div>
-		<div class="col-lg-4 col-lg-offset-4">
-			<p> <%= image_tag @space.avatar.url(:medium) %> </p>
-			<p>
+		</div>
+
+			<div class="row">
+				<div class="col-lg-6">
+					<p> <%= image_tag @space.avatar.url(:medium) %> </p>
+				<p>
 				<% if can_crud_space?(@space) %>
 					<%= link_to "Edit Space", edit_space_path(@space) %> |
 					<%= link_to "Delete Space", space_path(@space), method: :delete, data: { confirm: "Are you sure?" } %>
 				<% end %>
-			</p>
-			<p>Category: <%= @space.category %></p>
-			<p>Description: <%= @space.description %></p>
-			<p>Location: <%= @space.location %></p>
-			<p>Price: <%= @space.price %></p>
-			<p>Capacity: <%= @space.capacity %></p>
-		</div>
-		<!-- Calendar -->
-		<%= render 'modal' %>
-
-		<!-- Map -->
-		<div class="col-lg-8 col-lg-offset-2 centered">
-			<div id='map'></div>
-			<script>
-			L.mapbox.accessToken = 'pk.eyJ1IjoiY3htaSIsImEiOiJiOGVjYjQ1OWQ4ZjliYjUzMDU5YWJkMDJhNjYzZDUwYyJ9.qdfY6hSkrruwSL5v1URWrw';
-
-			var map = L.mapbox.map('map', 'mapbox.streets')
-			    .setView([-33.92947, 18.41071], 12); // [latitude, long], zoom value
-
-			var myLocations = L.mapbox.featureLayer()
-			          .loadURL('/spaces/<%= escape_javascript params[:id] %>.json')
-			          .addTo(map)
-			          .bindPopup("<b><%= @space.name %></b><br><%= @space.location %>");
-			</script>
-		</div>
-
-		<div class="col-lg-4 col-lg-offset-4">
-			<%= link_to "Back", spaces_path %>
-			<!-- Reviews -->
-			<br>
-			<h3>Reviews</h3>
-				<% @space.reviews.each do |review| %>
-					<%= review.user.email %> | Rating: <%= review.rating %><br>
-					 <%= review.body %><br>
-					<% if review.user == current_user %>
-						| <%= link_to "Delete Review", space_review_path(@space, review), method: :delete, data: { confirm: "Are you sure?" } %>
-					<% end %>
+					</p>
+					<p>Category: <%= @space.category %></p>
+					<p>Description: <%= @space.description %></p>
+					<p>Location: <%= @space.location %></p>
+					<p>Price: <%= @space.price %></p>
+					<p>Capacity: <%= @space.capacity %></p>
 					<br>
-				<% end %>
-				<% if !owns_space?(@space) %>
-					<p>Leave a new review: </p>
-					<%= render 'reviews/form' %>
-				<% end %>
-			<br>
-			<br>
+					<%= link_to "Back", spaces_path %>
+			<!-- Reviews -->
+			<div class="centered">
+				<h3>Reviews</h3></div>
+
+                        <div class="panel-body">
+                        	<div class="list-group">
+				<% @space.reviews.each do |review| %>
+
+									<div class="list-group-item">
+										<div class="row">
+											
+											<div class="col-xs-4">
+												By <b><%= review.user.email %></b><br><%= review.rating %> stars
+											</div>
+											<div class="col-xs-8">
+												 <%= review.body %>
+											</div>
+										</div> <!-- row -->
+									</div> <!--listgroupitem-->
+								<% end %>
+
+			
+                            </div> <!--listgroup-->
+	                           
+                        </div> <!-- panelbody -->
+
+			              <% if !owns_space?(@space) %>
+								<h3>Leave a new review: </h3>
+								<%= render 'reviews/form' %>
+							<% end %>
+							<br>
+							<br>
+				</div> <!-- col lg 6-->
+			<div class="col-lg-6">
+	
+		
+		<!-- Map -->
+			<div id='map'></div>
+				<script>
+					L.mapbox.accessToken = 'pk.eyJ1IjoiY3htaSIsImEiOiJiOGVjYjQ1OWQ4ZjliYjUzMDU5YWJkMDJhNjYzZDUwYyJ9.qdfY6hSkrruwSL5v1URWrw';
+
+					var map = L.mapbox.map('map', 'mapbox.streets')
+					    .setView([-33.92947, 18.41071], 12); // [latitude, long], zoom value
+
+					var myLocations = L.mapbox.featureLayer()
+					          .loadURL('/spaces/<%= escape_javascript params[:id] %>.json')
+					          .addTo(map)
+					          .bindPopup("<b><%= @space.name %></b><br><%= @space.location %>");
+				</script>
+			</div>
+
+		
+
 		</div>
 	</div>
 </div>

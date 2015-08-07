@@ -15,10 +15,10 @@
 												<%= image_tag(space.avatar(:medium), :size => "100x80") %>
 											</div>
 											<div class="col-xs-3 vertical-center">
-												<b><%= space.name %></b><br>
+												<b><%= link_to space.name, space_path(space) %></b><br>
 													<%= space.location %><br>
 													<small>Created <%= space.created_at.to_date %></small><br>
-													<span class="badge"><%= space.requests.unanswered.count %> Pending Request(s)</span>
+													<span class="badge"><%= space.requests.unanswered.count %> Pending Requests</span>
 											</div>
 											<div class="col-xs-3"><br>
 												<%= truncate(space.description, length: 200, separator: ' ') %>
@@ -33,23 +33,7 @@
 									</div>
 							<% end %>
 
-									<a class="list-group-item">
-										<div class="row">
-											<div class="col-xs-3">
-												hi
-											</div>
-											<div class="col-xs-3">
-												hi
-											</div>
-											<div class="col-xs-3">
-												hi
-											</div>
-											<div class="col-xs-3">
-												hi
-											</div>
-										</div>
-									</a>	
-
+					
 					
 								<%= link_to "Add New Space", new_space_path, class: "list-group-item" %>
 
@@ -57,16 +41,6 @@
 	                           
                         </div>
                         <!--/panel-body-->
-             
-
-
-				<% @spaces.each do |space| %>
-
-						<%= link_to image_tag(space.avatar(:medium)), space_path(space) %><br>
-						<h4><%= link_to space.name, space_path(space) %></h4>
-						<p><%= truncate(space.description, length: 80, separator: ' ') %></p>
-						<br>
-				<% end %>
 
 	</div>
 
