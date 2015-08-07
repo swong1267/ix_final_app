@@ -33,8 +33,9 @@ class SpacesController < ApplicationController
     @events_by_date = @events.group_by(&:date)
     @date = params[:date] ? Date.parse(params[:date]) : Date.today
     @review = Review.new
+    @avg_rating = 0.0
 
-    
+
     @geojson = Array.new
     @geojson << {
       type: 'Feature',
