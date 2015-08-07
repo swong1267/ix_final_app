@@ -14,6 +14,18 @@ Space.delete_all
 Profile.delete_all
 User.delete_all
 
+John = User.create! email: "john@gmail.com", password: "12345678", password_confirmation: "12345678"
+Mary = User.create! email: "mary@gmail.com", password: "12345678", password_confirmation: "12345678"
+Sally = User.create! email: "sally@gmail.com", password: "12345678", password_confirmation: "12345678"
+Joe = User.create! email: "joe@gmail.com", password: "12345678", password_confirmation: "12345678"
+
+JohnP = Profile.create! username: "John", public: false, user: John, earnings: 20, name: "John", bio: "I run a live/work space for artists here in Cape Town, as well as another arts complex with a gallery, art studios, and dance studio. I like to have fun with life and keep positive people around me all the time."
+MaryP = Profile.create! username: "Mary", public: false, user: Mary, earnings: 15, name: "Mary", bio: "I'm a modern dance choreographer/performer/educator. I've lived in Cape Town since 1996 and have seen all of its changes. I love the rich cultural diversity of Cape Town and its creative spirit."
+SallyP = Profile.create! username: "Sally", public: false, user: Sally, earnings: 200, name: "Sally", bio: "Work at Enra in Cape Town. Graduated UCT in 2011 with a major in economics. Food Lover."
+Joe = Profile.create! username: "Joe", public: false, user: Joe, earnings: 0, name: "Joe", bio: "I've been in Cape Town for over 10 years and have loved every minute of it! When I'm not home, I'm off traveling to some amazing places all over the world. I enjoy running, yoga, scuba diving and enjoying an amazing glass of wine here, there and everywhere! :)"
+
+
+
 ian = User.create! email: "ian@ian.com", password: "12345678", password_confirmation: "12345678"
 brian = User.create! email: "brian@brian.com", password: "12345678", password_confirmation: "12345678"
 erica = User.create! email: "erica@erica.com", password: "12345678", password_confirmation: "12345678"
