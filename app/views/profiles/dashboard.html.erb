@@ -294,7 +294,9 @@
 			</p>
 
 			<!-- Most Popular Space -->
-			<p>Most Popular Space: <%= @most_popular_space.name %></p>
+			<% unless @most_popular_space == nil %>
+				<p>Most Popular Space: <%= @most_popular_space.name %></p>
+			<% end %>
 
 			<!-- Upcoming Events -->
 			<p>Upcoming Events: <%= @upcoming_events.count %></p>
@@ -348,7 +350,7 @@
 				<div class="row">
 					<div class="col-md-2 col-md-offset-4"><%= request.event.user.profile.name.capitalize %></div>
 					<div class="col-md-4"><%= request.space.name %></div>
-					<div class="col-md-2"><%= link_to "View", request_path(request) %></div>
+					<div class="col-md-2"><%= link_to "View", requests_path %></div>
 				</div>
 			<% end %>
 			<div class="row">
@@ -358,16 +360,26 @@
 
 			<!-- Messages -->
 			<div class="row">
-				<div class="col-md-8 col-md-offset-4"><h3>Messages</h3></div>
-			</div>			<div class="row">
+				<div class="col-md-8 col-md-offset-4">
+					<h3>
+						Messages
+						<% if @unread > 0 %>
+						 (Unread: <%= @unread %>)
+						<% end %>
+					</h3>
+				</div>
+			</div>
+			<div class="row">
 				<div class="col-md-2 col-md-offset-4">Sender:</div>
 				<div class="col-md-4">Subject:</div>
 			</div>
 			<% @messages.each do |message| %>
 				<div class="row">
+					<% if message.unread %><b><% end %>
 					<div class="col-md-2 col-md-offset-4"><%= message.sender.profile.name.capitalize %></div>
 					<div class="col-md-4"><%= message.subject %></div>
 					<div class="col-md-2"><%= link_to "View", message_path(message) %></div>
+					<% if message.unread %></b><% end %>
 				</div>
 			<% end %>
 			<div class="row">

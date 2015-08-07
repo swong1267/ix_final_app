@@ -3,8 +3,6 @@ class EventsController < ApplicationController
     @my_events = current_user.events
     @public_events = Event.where(public: true, user: !current_user)
     @all_events = Event.where("public OR user_id = ?", current_user.id)
-
-
   end
 
   def show
@@ -18,10 +16,10 @@ class EventsController < ApplicationController
       @space = Space.find(params[:space_id])
     end
 
-    if params[:space_id].present? 
+    if params[:space_id].present?
       @spacename = Space.find(params[:space_id]).name
     end
-   
+
   end
 
   def edit

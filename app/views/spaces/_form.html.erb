@@ -3,7 +3,6 @@
 	<% if @space.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@space.errors.count, "error") %> prohibited this space from being saved:</h2>
-
       <ul>
       <% @space.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
@@ -16,11 +15,14 @@
 		<%= f.label :name %><br>
 		<%= f.text_field :name, placeholder: "Pick a descriptive name for your space", :size => 40 %>
 	</p>
+
 	<p><%= f.file_field :avatar %></p>
+
 	<p>
 		<%= f.label :category %><br>
 		<%= f.select :category, ["Display", "Room", "Building", "Outdoor Area", "Other"] %>
 	</p>
+
 	<p>
 		<%= f.label :location %><br>
 		<%= f.text_field :location, :size => 40 %>

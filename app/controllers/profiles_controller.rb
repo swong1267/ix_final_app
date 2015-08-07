@@ -14,6 +14,13 @@ class ProfilesController < ApplicationController
     @requests = @profile.user.space_requests
     @current_earnings = 0
 
+    @unread = 0
+    @messages.each do |message|
+      if message.unread
+        @unread += 1
+      end
+    end
+
     @past_events = []
     Event.all.each do |event|
       if (event.date < Time.zone.now) && (@spaces.include? event.space)
@@ -27,9 +34,9 @@ class ProfilesController < ApplicationController
         @upcoming_events << event
       end
     end
+
     events = 0
     @most_popular_space = @spaces[0]
-
     @spaces.each do |space|
       if space.events.count > events
         events = space.events.count

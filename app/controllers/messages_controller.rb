@@ -1,10 +1,12 @@
-class MessagesController < ApplicationController
+ class MessagesController < ApplicationController
   def index
     redirect_to inbox_messages_path
   end
 
   def show
     @message = Message.find(params[:id])
+    @message.unread = false;
+    @message.save
   end
 
   def new
@@ -34,7 +36,6 @@ class MessagesController < ApplicationController
 
   def inbox
     @messages = current_user.received_messages.order("created_at DESC")
-
   end
 
   def sent_mail
