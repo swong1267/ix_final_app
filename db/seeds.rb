@@ -27,19 +27,27 @@ SallyP = Profile.create! first_name: "Sally", public: false, user: Sally, earnin
 HarryP = Profile.create! first_name: "Harry", public: false, user: Harry, earnings: 0, last_name: "Harry", bio: "I've been in Cape Town for over 10 years and have loved every minute of it! When I'm not home, I'm off traveling to some amazing places all over the world. I enjoy running, yoga, scuba diving and enjoying an amazing glass of wine here, there and everywhere! :)"
 
 
-PSpace1 = Space.create! name: "Once", category: "Room", description: "Our conference is great for your meetings!", location: "73 Kloof Street, Gardens, Cape Town, South Africa", price: 200, capacity: 30, user: Peter
+PSpace1 = Space.create! name: "iX House", category: "Room", description: "Our conference room is great for meetings!", location: "19 Park Street, Gardens, Cape Town, South Africa", price: 200, capacity: 30, user: Peter
 PSpace2 = Space.create! name: "Once", category: "Outdoor Area", description: "Choose us for your backyard braai! Full-size fireplace + small grill + full-size kitchen.", location: "73 Kloof Street, Gardens, Cape Town, South Africa", price: 300, capacity: 40, user: Peter
 PSpace3 = Space.create! name: "International School of Cape Town", category: "Room", description: "After hours, our classrooms can be used for everything from workshops to art studio space", location: "Woodland Heights, Edinburgh Close, Wynberg 7806, Cape Town, South Africa", price: 100, capacity: 30, user: Peter
-PSpace4 = Space.create! name: "International School of Cape Town", category: "Display", description: "Our walls would be perfect for displaying local artists' work.", location: "Woodland Heights, Edinburgh Close, Wynberg 7806, Cape Town, South Africa", price: 20, capacity: 1, user: Peter
+PSpace4 = Space.create! name: "Yours Truly", category: "Display", description: "Our walls would be perfect for displaying local artists' work.", location: "73 Kloof Street, Gardens, Cape Town, South Africa", price: 20, capacity: 1, user: Peter
 
 TSpace1 = Space.create! name: "Mzanzi's", category: "Room", description: "We're a family-owned restaurant in the heart of Langa, and we're passionate about supporting local musicians", location: "45 Harlem Ave, Langa, Cape Town, 7455", price: 20, capacity: 20, user: Tracy
 TSpace2 = Space.create! name: "Community Center", category: "Building", description: "Flexible space that includes and ampitheater, ceramics facilities, and a gathering space.", location: "Langa, Cape Town", price: 150, capacity: 60, user: Tracy
-TSpace3 = Space.create! name: "Community Center", category: "Display", description: "We would love to provide local artists the opportunity to display their work and increase their visibility", location: "Langa, Cape Town", price: 20, capacity: 40, user: Tracy
+# TSpace3 = Space.create! name: "Community Center", category: "Display", description: "We would love to provide local artists the opportunity to display their work and increase their visibility", location: "Langa, Cape Town", price: 20, capacity: 40, user: Tracy
 
 
-SEvent1 = Event.create! name: "Weekly Yoga Class", location: "Cape Town", people: 15, category: "Gathering", description: "Join me for yoga at the end of a long week to help destress", public: true, user: Sally, date: DateTime.parse("2/8/2015 17:00")
-SEvent2 = Event.create! name: "Ray's 21st Birthday!", location: "Cape Town", people: 25, category: "Gathering", description: "I'm throwing my friend Ray a surprise birthday party", public: false, user: Sally, date: DateTime.parse("10/8/2015 17:00")
-SEvent3 = Event.create! name: "Weekly Yoga Class", location: "Cape Town", people: 15, category: "Gathering", description: "Join me for yoga at the end of a long week to help destress", public: true, user: Sally, date: DateTime.parse("2/8/2015 17:00")
+SEvent1 = Event.create! name: "Weekly Yoga Class", location: "Cape Town", people: 15, category: "Workshop/Class", description: "Join me for yoga at the end of a long week to help destress", public: true, user: Sally, date: DateTime.parse("2/8/2015 17:00")
+SEvent2 = Event.create! name: "Ray's 21st Birthday!", location: "Cape Town", people: 25, category: "Gathering", description: "I'm throwing my friend Ray a surprise birthday party", public: false, user: Sally, date: DateTime.parse("10/8/2015 17:00"), space: PSpace2
+SEvent3 = Event.create! name: "Art Studio Hours", location: "Cape Town", people: 1, category: "Personal", description: "Looking for a space to finish some art pieces", public: false, user: Sally, date: DateTime.parse("11/8/2015 17:00")
+
+HEvent1 = Event.create! name: "Going Away Party", location: "Joburg", people: 50, category: "Gathering", description: "Celebration for my best friend's going away", public: false, user: Harry, date: DateTime.parse("15/8/2015 17:00")
+HEvent2 = Event.create! name: "Entrepreneur Workshop", location: "Cape Town", people: 20, category: "Workshop/Class", description: "A workshop to help budding entrepreneurs.", public: true, user: Harry, date: DateTime.parse("12/8/2015 17:00")
+HEvent3 = Event.create! name: "Slam Poetry Performance", location: "Cape Town", people: 100, category: "Performance", description: "Come see UCT students perform original slap poetry", public: true, user: Harry, date: DateTime.parse("20/8/2015 17:00")
+
+Review.create! user: Sally, space: PSpace2, rating: 5, body: "Loved using the firepit to turn my celebration into a braai! Once's outdoor area has great atmosphere and is very accomodating."
+Review.create! user: Tracy, space: PSpace2, rating: 4, body: "Enjoyed the fun lighting and staff in the outdoor area, but it was a little too cold"
+Review.create! user: Harry, space: PSpace2, rating: 5, body: "Full-kitchen was larger and cleaner than I hoped"
 
 
 ian = User.create! email: "ian@ian.com", password: "12345678", password_confirmation: "12345678"

@@ -28,6 +28,13 @@
 			<!-- Reviews -->
 			<div class="centered">
 				<h3>Reviews</h3></div>
+				<h5>
+					Average Rating:
+					<% @space.reviews.each do |review| %>
+						<% @avg_rating += review.rating %>
+					<% end %>
+					<%= (@avg_rating/@space.reviews.count).round(2) %> Stars
+				</h5>
 
                         <div class="panel-body">
                         	<div class="list-group">
@@ -35,7 +42,7 @@
 
 									<div class="list-group-item">
 										<div class="row">
-											
+
 											<div class="col-xs-4">
 												By <b><%= review.user.email %></b><br><%= review.rating %> stars
 											</div>
@@ -46,9 +53,9 @@
 									</div> <!--listgroupitem-->
 								<% end %>
 
-			
+
                             </div> <!--listgroup-->
-	                           
+
                         </div> <!-- panelbody -->
 
 			              <% if !owns_space?(@space) %>
@@ -59,8 +66,8 @@
 							<br>
 				</div> <!-- col lg 6-->
 			<div class="col-lg-6">
-	
-		
+
+
 		<!-- Map -->
 			<div id='map'></div>
 				<script>
@@ -76,7 +83,7 @@
 				</script>
 			</div>
 
-		
+
 
 		</div>
 	</div>
