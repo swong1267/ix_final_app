@@ -30,6 +30,7 @@ PSpace2 = Space.create! name: "Once", category: "Outdoor Area", description: "Ch
 PSpace3 = Space.create! name: "International School of Cape Town", category: "Room", description: "After hours, our classrooms can be used for everything from workshops to art studio space", location: "Woodland Heights, Edinburgh Close, Wynberg 7806, Cape Town, South Africa", price: 100, capacity: 30, user: Peter
 PSpace4 = Space.create! name: "Yours Truly", category: "Display", description: "Our walls would be perfect for displaying local artists' work.", location: "73 Kloof Street, Gardens, Cape Town, South Africa", price: 20, capacity: 1, user: Peter
 
+
 TSpace1 = Space.create! name: "Mzanzi's", category: "Room", description: "We're a family-owned restaurant in the heart of Langa, and we're passionate about supporting local musicians", location: "45 Harlem Ave, Langa, Cape Town, 7455", price: 20, capacity: 20, user: Tracy
 TSpace2 = Space.create! name: "Community Center", category: "Building", description: "Flexible space that includes and ampitheater, ceramics facilities, and a gathering space.", location: "Langa, Cape Town", price: 150, capacity: 60, user: Tracy
 # TSpace3 = Space.create! name: "Community Center", category: "Display", description: "We would love to provide local artists the opportunity to display their work and increase their visibility", location: "Langa, Cape Town", price: 20, capacity: 40, user: Tracy
@@ -41,7 +42,7 @@ SEvent4 = Event.create! name: "Volunteers4Change", location: "Cape Town", people
 
 
 HEvent1 = Event.create! name: "Going Away Party", location: "Joburg", people: 50, category: "Gathering", description: "Celebration for my best friend's going away", public: false, user: Harry, date: DateTime.parse("15/8/2015 17:00"), space: PSpace3
-HEvent2 = Event.create! name: "Entrepreneur Workshop", location: "Cape Town", people: 20, category: "Workshop/Class", description: "A workshop to help budding entrepreneurs.", public: true, user: Harry, date: DateTime.parse("12/8/2015 17:00"), space: PSpace3
+HEvent2 = Event.create! name: "Entrepreneur Workshop", location: "Cape Town", people: 20, category: "Workshop/Class", description: "A workshop to help budding entrepreneurs. Come join and learn about how you can expand or start your own business", public: true, user: Harry, date: DateTime.parse("12/8/2015 17:00"), space: PSpace3
 HEvent3 = Event.create! name: "Slam Poetry Performance", location: "Cape Town", people: 100, category: "Performance", description: "Come see UCT students perform original slap poetry", public: true, user: Harry, date: DateTime.parse("20/8/2015 17:00"), space: PSpace3
 
 Review.create! user: Tracy, space: PSpace3, rating: 4, body: "Enjoyed the fun lighting and space, but it was a little too cold"
