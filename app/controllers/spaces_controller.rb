@@ -35,7 +35,6 @@ class SpacesController < ApplicationController
     @review = Review.new
     @avg_rating = 0.0
 
-
     @geojson = Array.new
     @geojson << {
       type: 'Feature',
