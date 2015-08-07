@@ -1,9 +1,31 @@
 <div id="white">
 	<div class="container">
-   	<div class="col-lg-4 col-lg-offset-4 centered">
-			<h1><%= @event.name %> Page</h1>
-			<h5>Event Creator: <%= @event.user.email %></h3>
+   	<div class="col-lg-6 col-lg-offset-3 centered">
+			<h1><%= @event.name %></h1>
+			<h5>Created by <%= @event.user.email %></h3>
+			<p class="lead">A <b><%= @event.category %></b> for <b><%= @event.people %></b> people in <b><%= @event.location %></b></p>
 			<p><%= image_tag @event.avatar.url(:medium) %></p>
+			
+			
+
+			<% unless @event.space == nil %>
+				<p class="lead">This event has been confirmed for<% if @event.date.present? %>
+				<%= @event.date %>
+			<% end %> at <%= @event.space.name %></p>
+			<% end %>
+
+			<p><%= @event.description %></p>
+			
+			<% if @event.user == current_user %>
+				<p><small>Public (only you can see this):
+					<% if @event.public %>
+						Yes
+					<% else %>
+						No</small>
+					<% end %>
+				</p>
+			<% end %>
+
 			<p>
 				<% if can_crud_event?(@event) %>
 					<%= link_to "Edit Event", edit_event_path(@event) %> |
@@ -13,26 +35,7 @@
 				<% end %>
 				<%= link_to "Back", events_path %>
 			</p>
-
-			<p>Location: <%= @event.location %></p>
-			<p>Number of People: <%= @event.people %></p>
-			<p>Category: <%= @event.category %></p>
-			<p>Description: <%= @event.description %></p>
-			<% if @event.date.present? %>
-				<p>Date: <%= @event.date %></p>
-			<% end %>
-			<% if @event.user == current_user %>
-				<p>Public:
-					<% if @event.public %>
-						Yes
-					<% else %>
-						No
-					<% end %>
-				</p>
-			<% end %>
-			<% unless @event.space == nil %>
-				<p>Space: <%= @event.space.name %></p>
-			<% end %>
+			
 		</div>
 	</div>
 </div>
