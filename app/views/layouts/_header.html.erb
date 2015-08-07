@@ -21,7 +21,9 @@
         <li><%= link_to "SPACES", spaces_path %></li>
         <li><%= link_to "EVENTS", events_path %></li>
         <% if user_signed_in? %>
-          <li><%= link_to "DASH", dashboard_profile_path(current_user.profile) %></a></li>
+          <% unless current_user.profile == nil %>
+            <li><%= link_to "DASH", dashboard_profile_path(current_user.profile) %></a></li>
+          <% end %>
           <li class="dropdown">
                 <a id="dropd1" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                 MY ACCOUNT
@@ -35,6 +37,7 @@
                 <li><%= link_to "My Spaces", spaces_myspaces_path %></li>
                 <li><%= link_to "My Events", events_myevents_path %></li>
                 <li><%= link_to "My Profile", profile_path(current_user.profile) %></li>
+
 
               </ul>
 

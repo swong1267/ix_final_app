@@ -6,7 +6,7 @@
  * Version: 1.0
  * URL: http://blacktie.co
  */
- 
+
 /* FONTS */
 @import url(https://fonts.googleapis.com/css?family=Ruda:400,900,700);
 
@@ -21,7 +21,7 @@ body {
 
     -webkit-font-smoothing: antialiased;
     -webkit-overflow-scrolling: touch;
-    
+
 }
 
 /* Titles */
@@ -126,7 +126,7 @@ border-bottom-width: 0px;
 /* Padding top & bottom */
 .pt {
 	padding-top: 15px;
-	padding-bottom: 15px; 
+	padding-bottom: 15px;
 }
 
 /* Description Styling / Used in portfolio & Blog images footnotes */
@@ -187,13 +187,13 @@ p.capitalize {
 }
 
 p.capitalize:first-letter {
-	text-transform:capitalize; 
+	text-transform:capitalize;
 	font-size: 30px;
 	font-family: 'Ruda', sans-serif;
 	font-weight: 400;
-	color:white; 
-	padding-left:10px; 
-	padding-right:10px; 
+	color:white;
+	padding-left:10px;
+	padding-right:10px;
 	margin-right:5px;
 }
 
@@ -267,7 +267,7 @@ p.capitalize:first-letter {
 .testi-container {
 	width:100%;
 	margin-bottom:14px;
-	padding: 5px 6px 3px 0px; 
+	padding: 5px 6px 3px 0px;
 	background-color:#fafafa;
 	border: solid 1px #ddd;
 	-webkit-border-radius: 5px;
@@ -287,7 +287,7 @@ p.capitalize:first-letter {
 	z-index:999;
 	left:42px;
 	bottom: 0px;
-	margin-left: -7px;	
+	margin-left: -7px;
 }
 @media \0screen {.testi-container:before {background:none;}}
 
@@ -329,7 +329,7 @@ p.capitalize:first-letter {
 	background-position: center center;
 	min-height: 450px;
 	width: 100%;
-	
+
     -webkit-background-size: 100%;
     -moz-background-size: 100%;
     -o-background-size: 100%;
@@ -391,14 +391,14 @@ p.capitalize:first-letter {
 	margin-top: 0px;
 	background-color: #f7f7f7;
 	min-height: 300px;
-	width: 100%;	
+	width: 100%;
 }
 
 #black {
 	margin-top: 0px;
 	background-color: #2f2f2f;
 	min-height: 300px;
-	width: 100%;	
+	width: 100%;
 }
 
 #black h3 {
@@ -447,7 +447,7 @@ p.capitalize:first-letter {
 	background-position: center center;
 	min-height: 350px;
 	width: 100%;
-	
+
     -webkit-background-size: 100%;
     -moz-background-size: 100%;
     -o-background-size: 100%;
@@ -487,7 +487,7 @@ p.capitalize:first-letter {
 	background-position: center center;
 	min-height: 350px;
 	width: 100%;
-	
+
     -webkit-background-size: 100%;
     -moz-background-size: 100%;
     -o-background-size: 100%;
@@ -515,7 +515,7 @@ p.capitalize:first-letter {
 	background-position: center center;
 	min-height: 450px;
 	width: 100%;
-	
+
     -webkit-background-size: 100%;
     -moz-background-size: 100%;
     -o-background-size: 100%;
@@ -549,7 +549,7 @@ p.capitalize:first-letter {
 	color: white;
 	padding-top: 40px;
 	padding-bottom: 40px;
-	
+
     -webkit-transition: color 0.3s ease-in, background 0.3s ease-in;
     -moz-transition: color 0.3s ease-in, background 0.3s ease-in;
     -ms-transition: color 0.3s ease-in, background 0.3s ease-in;
@@ -564,7 +564,7 @@ p.capitalize:first-letter {
     -ms-transition: color 0.2s ease-in, background 0.2s ease-in;
     -o-transition: color 0.2s ease-in, background 0.2s ease-in;
     transition: color 0.2s ease-in, background 0.2s ease-in;
-    
+
     cursor: pointer;
 }
 
@@ -656,7 +656,7 @@ p.capitalize:first-letter {
 
 
 
-@media (max-width: 600px) { 
+@media (max-width: 600px) {
 
 #headerwrap h1 {
 	font-size: 35px;
@@ -664,20 +664,20 @@ p.capitalize:first-letter {
 
 #cta03 {
 	background: #2d2d2d;
-	}	
-	
+	}
+
 #wv {
 	height: 350px;
 }
-	
+
 }
 
-@media (max-width: 900px) { 
+@media (max-width: 900px) {
 
 
 #cta03 {
 	background: #2d2d2d;
-	}	
+	}
 }
 
 

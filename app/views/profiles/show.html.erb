@@ -1,7 +1,7 @@
 <div id="white">
 	<div class="container">
     <div class="col-lg-8 col-lg-offset-2 centered">
-			<h1><%= @profile.name.capitalize %>'s Profile</h1>
+			<h1>Hey, I'm <%= @profile.first_name.capitalize %>!</h1>
 			<p>Bio: <%= @profile.bio %></p></br>
 			<p>
 
@@ -39,7 +39,7 @@
 					</div>
 				<% end %>
 			<% end %>
-			<p><%= link_to "Contact", new_message_path(recipient: @profile.user.email) %> <%= @profile.name.capitalize %></p>
+			<p><%= link_to "Contact", new_message_path(recipient: @profile.user.email) %> <%= @profile.first_name.capitalize %></p>
 
 			<!-- panel -->
 			 <div class="panel panel-default">

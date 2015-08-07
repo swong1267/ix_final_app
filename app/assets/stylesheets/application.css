@@ -20,6 +20,11 @@
  *= require_tree .
  *= require_self
  */
+
+
+	@import url(https://fonts.googleapis.com/css?family=Ruda:400,900,700);
+
+
 #headerwrap {
 	padding-bottom: 180px;
 }
@@ -114,7 +119,7 @@ table {
 }
 
 td {
-	max-width:100px; 
+	max-width:100px;
 	word-wrap:break-word;
 }
 
