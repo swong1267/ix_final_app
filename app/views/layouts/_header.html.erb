@@ -22,7 +22,20 @@
         <li><%= link_to "EVENTS", events_path %></li>
         <% if user_signed_in? %>
           <li><%= link_to "DASH", dashboard_profile_path(current_user.profile) %></a></li>
-          <li><%= link_to 'MY PROFILE', profile_path(current_user.profile) %></li>
+          <li class="dropdown">
+                <a id="dropd1" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                MY ACCOUNT
+                <span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="drop1">
+                <li><%= link_to "Requests", requests_path %></li>
+                <li><%= link_to "Messages", inbox_messages_path %></li>
+                <li><%= link_to "My Profile", profile_path(current_user.profile) %></li>
+                <li role="separator" class="divider"></li>
+                <li><%= link_to "Dashboard", dashboard_profile_path(current_user.profile) %></li>
+              </ul>
+
+          </li>
         <% else %>
         		<li><%= link_to "SIGN UP", new_user_registration_path %></li>
         <% end %>
