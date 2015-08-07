@@ -34,8 +34,6 @@ class SpacesController < ApplicationController
     @date = params[:date] ? Date.parse(params[:date]) : Date.today
     @review = Review.new
     @avg_rating = 0.0
-    binding.pry
-
 
     @geojson = Array.new
     @geojson << {
