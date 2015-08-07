@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
 
   get 'welcome/index'
+  get 'spaces/myspaces' => 'spaces#myspaces'
+  get 'events/myevents' => 'events#myevents'
+
+
 
   devise_for :users, :controllers => { registrations: 'registrations' }
 
