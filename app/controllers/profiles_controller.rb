@@ -10,7 +10,7 @@ class ProfilesController < ApplicationController
     @profile = Profile.find(params[:id])
     @spaces = @profile.user.spaces
     @events = @profile.user.events
-    @messages = Message.where(recipient: @profile.user)
+    @messages = Message.where(recipient: @profile.user).order("created_at DESC")
     @requests = @profile.user.space_requests
     @current_earnings = 0
 

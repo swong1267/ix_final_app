@@ -92,7 +92,7 @@
                             </div>
                             <div class="col-xs-3 text-center">
                             	<h1><i class="glyphicon glyphicon-star"></i><br>
-                            	<%= truncate(@most_popular_space.name, :length => 9) %> </h1>
+                            	<%= truncate(@most_popular_space.name, :length => 6) %> </h1>
                             	<small>Most Popular Space</small>
                             </div>
                             <div class="col-xs-3 text-center">
@@ -148,7 +148,7 @@
 				    </tbody>
 				    <tfoot>
 				    <tr>
-				    	<th colspan=4 style="text-align:center"><%= link_to "See All Requests", requests_path %></th>
+				    	<th colspan=5 style="text-align:center"><%= link_to "See All Requests", requests_path %></th>
 				    </tr>
 				    </tfoot>
 
@@ -162,7 +162,9 @@
                     </div>
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <h4>Messages</h4></div>
+                            <h4>Messages <span class="badge"><% if @unread > 0 %>
+						 <%= @unread %> New
+						<% end %> </span></h4></div>
                         <div class="panel-body">
                            
                         	<table class="table table-hover">
@@ -174,17 +176,20 @@
 				      </tr>
 				    </thead>
 				    <tbody>
-				<% @messages.each do |message| %>
+				<% @messages.first(5).each do |message| %>
 				      <tr>
 				        <td>
+				        <% if message.unread %><b><% end %>
 				        <% if message.sender == nil %>
 							Admin
 						<% else %>
 							<%= message.sender.email %>
 						<% end %>
 						</td>
-				        <td><%= link_to message.subject, message_path(message) %></td>
-				        <td><%= message.created_at.to_date %></td>
+				        <td><% if message.unread %><b><% end %>
+				        <%= link_to message.subject, message_path(message) %></td>
+				        <td><% if message.unread %><b><% end %>
+				        <%= message.created_at.to_date %></b></td>
 
 				      </tr>
 				 <% end %>

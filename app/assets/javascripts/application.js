@@ -52,4 +52,7 @@ $('a[href*=#]:not([href=#])').click(function() {
 
 
 
+$('.dropdown-toggle').dropdown()
+
+
 

@@ -1,7 +1,7 @@
 <div id="headerwrap">
 	<div class="container">
 		<div class="row centered">
-			<div class="col-lg-8 col-lg-offset-2 mt">
+			<div class="col-xs-8 col-xs-offset-2 mt">
 				<div class = "move-title"><h1 class="animation slideDown">VENÜ</h1><br>
 
 				<h2>FIND A SPACE FOR YOUR PASSION</h2>
@@ -18,29 +18,29 @@
 <div id="white">
   <div class="container">
   	<div class="row mt">
-  		<div class="col-lg-4 col-lg-offset-4 centered" id="about-venu">
+  		<div class="col-xs-4 col-xs-offset-4 centered" id="about-venu">
   			<h3>How It Works</h3>
   			<hr>
   		</div>
   	</div>
   	<div class="row mt">
-  		<div class="col-lg-3">
+  		<div class="col-xs-3">
   			<p class="capitalize">1</p>
   			<h4>Brief</h4>
   			<p>Built for all levels of expertise, whether you need simple pages or complex ones, creating something incredible with Marco is an effortless and intuitive process.</p>
   		</div>
-  		<div class="col-lg-3">
+  		<div class="col-xs-3">
   			<p class="capitalize">2</p>
   			<h4>Analysis</h4>
   			<p>We’ve taken great care to ensure that Marco is fully retina-ready. So it’ll look good on any retina display. We use retina.js to ensure the best view.</p>
   		</div>
-  		<div class="col-lg-3">
+  		<div class="col-xs-3">
   			<p class="capitalize">3</p>
   			<h4>Planning</h4>
   			<p>Marco fits any device handsomely. We tested our theme in major devices and browsers. Check it out and test it before buy it on responsinator.com.</p>
   		</div>
 
-  		<div class="col-lg-3">
+  		<div class="col-xs-3">
   			<p class="capitalize">4</p>
   			<h4>Execution</h4>
   			<p>Good looking animations are an essential part of the new theme design trend. We add animations.css, a cool script to help you enhance your site with style.</p>
@@ -52,7 +52,7 @@
 
 <div class="container">
 	<div class="row mt centered ">
-		<div class="col-lg-4 col-lg-offset-4" id="discover-events">
+		<div class="col-xs-4 col-xs-offset-4" id="discover-events">
 			<h3>Popular Events</h3>
 			<hr>
 		</div>
@@ -60,18 +60,18 @@
 
 	<div class="row mt">
 		<% @events.last(5).each do |event| %>
-			<div class="col-lg-4 col-md-4 col-xs-12 desc">
-				<%= link_to image_tag(event.avatar(:medium)), event_path(event), class: "b-link-fade b-animate-go" %>
+			<div class="col-xs-4 col-xs-4 col-xs-12 desc">
+				<%= link_to image_tag(event.avatar(:medium), class: "home-images"), event_path(event), class: "b-link-fade b-animate-go" %>
 
 				</a>
 				<p><%= link_to event.name, event_path(event) %> <b><p class="lead"><%=event.user.email %></b></p></p>
 				<p class="lead"><%= truncate(event.description, length: 150, separator: ' ') %></p>
 				<hr-d>
-			</div><!-- col-lg-4 -->
+			</div><!-- col-xs-4 -->
 		<% end %>
 
-		<div class="col-lg-4 col-md-4 col-xs-12 desc">
-			<a class="b-link-fade b-animate-go" href="/events/new"><img width="350" src="/img/portfolio/addevent.jpg" alt="" />
+		<div class="col-xs-4 col-xs-4 col-xs-12 desc">
+			<a class="b-link-fade b-animate-go" href="/events/new"><img src="/img/portfolio/addevent.jpg" alt="" class="home-images">
 				<div class="b-wrapper">
 			  	<h4 class="b-from-left b-animate b-delay03">Add Your Own Event</h4>
 			  	<p class="b-from-right b-animate b-delay03">Find a space for your passions.</p>
@@ -80,16 +80,16 @@
 			<p>Create an event!</p>
 			<p class="lead">Have an idea for an awesome workshop, class, comedy show, concert, or more? Or do you simply need a small studio place every week to work on some paintings? Venü will help you find the best spaces for your needs. </p>
 			<hr-d>
-		</div><!-- col-lg-4 -->
+		</div><!-- col-xs-4 -->
 	</div><!-- /row -->
 </div><!-- /container -->
 
-	<! ========== DISCOVER SPACES ==============================================================================================
-	=============================================================================================================================>
+	<!-- ========== DISCOVER SPACES ==============================================================================================
+	=============================================================================================================================-->
 
 <div class="container">
 	<div class="row mt centered ">
-		<div class="col-lg-4 col-lg-offset-4" id="discover-spaces">
+		<div class="col-xs-4 col-xs-offset-4" id="discover-spaces">
 			<h3>Popular Spaces</h3>
 			<hr>
 		</div>
@@ -97,17 +97,17 @@
 
 	<div class="row mt">
 		<% @spaces.last(8).each do |space| %>
-			<div class="col-lg-4 col-md-4 col-xs-12 desc">
-				<%= link_to image_tag(space.avatar(:medium)), space_path(space) %>
+			<div class="col-xs-4 col-xs-4 col-xs-12 desc">
+				<%= link_to image_tag(space.avatar(:medium), class: "home-images"), space_path(space) %>
 				<p><%= link_to space.name, space_path(space) %> <b><p class="lead"><%=space.user.email %></b></p></p>
 				<p class="lead"><%= truncate(space.description, length: 150, separator: ' ') %></p>
 				<br><br>
 
-			</div><!-- col-lg-4 -->
+			</div><!-- col-xs-4 -->
 		<% end %>
 
-		<div class="col-lg-4 col-md-4 col-xs-12 desc">
-			<a class="b-link-fade b-animate-go" href="/spaces/new"><img width="350" src="/img/portfolio/addspace.jpg" alt="" />
+		<div class="col-xs-4 col-xs-4 col-xs-12 desc">
+			<a class="b-link-fade b-animate-go" href="/spaces/new"><img src="/img/portfolio/addspace.jpg" alt="" class="home-images">
 				<div class="b-wrapper">
 			  	<h4 class="b-from-left b-animate b-delay03">Add a Space</h4>
 			  	<p class="b-from-right b-animate b-delay03">Get paid for your unused spaces.</p>
@@ -116,7 +116,7 @@
 			<p>Own a space?</p>
 			<p class="lead">Join Venü today to start listing your unused spaces, whether it be a storefront at night, an unbooked restaurant stage, an empty garage, or an old warehouse building. You can <%= link_to "sign up", new_user_registration_path %> here or add a new listing <%= link_to "here", new_space_path %>.</p>
 			<hr-d>
-		</div><!-- col-lg-4 -->
+		</div><!-- col-xs-4 -->
 	</div><!-- /row -->
 </div><!-- /container -->
 
@@ -127,7 +127,7 @@
     <div id="cta02">
     	<div class="container">
     		<div class="row">
-    			<div class="col-lg-8 col-lg-offset-2">
+    			<div class="col-xs-8 col-xs-offset-2">
     				<h2>Our network allows you to fully utilize and monetize unused spaces by connecting spaces with events.
     				</h2>
     			</div>
@@ -141,28 +141,28 @@
 <div id="black">
 	<div class="container pt">
 		<div class="row mt centered">
-			<div class="col-lg-3">
+			<div class="col-xs-3">
 				<p><i class="fa fa-instagram"></i></p>
 				<h1><%= @events.count %></h1>
 				<hr>
 				<h4>Events Created</h4>
 			</div>
 
-			<div class="col-lg-3">
+			<div class="col-xs-3">
 				<p><i class="fa fa-music"></i></p>
 				<h1><%= @spaces.count %></h1>
 				<hr>
 				<h4>Spaces Created</h4>
 			</div>
 
-			<div class="col-lg-3">
+			<div class="col-xs-3">
 				<p><i class="fa fa-trophy"></i></p>
 				<h1><%= @users.count %></h1>
 				<hr>
 				<h4>Happy Customers</h4>
 			</div>
 
-			<div class="col-lg-3">
+			<div class="col-xs-3">
 				<p><i class="fa fa-ticket"></i></p>
 				<h1>209</h1>
 				<hr>
