@@ -41,13 +41,15 @@
                         		<% @spaces.each do |space| %>
 							
 									<div class="list-group-item"><%= link_to space.name, space_path(space) %>
-									<span class="badge pull-right"><%= space.requests.where(status: 0).count %> requests</span></div>
+									<span class="badge pull-right"><%= space.requests.where(status: 0).count %> requests</span>
+						
+									</div>
 					
 								<% end %>
 								<%= link_to "Add New Space", new_space_path, class: "list-group-item" %>
 
                             </div>
-	                            <div class="centered"><%= link_to "See All Spaces *edit this to my spaces*", spaces_path %></div>
+	                            <div class="centered"><%= link_to "See All Spaces", spaces_myspaces_path %></div>
                         </div>
                         <!--/panel-body-->
                     </div>
@@ -83,26 +85,35 @@
 
                     <div class="panel panel-default">
                         <div class="panel-body">
-                            <div class="col-xs-3 text-center">
+                            <div class="col-xs-4 text-center">
                             	<h1><i class="glyphicon glyphicon-signal"></i><br>
 	                            	<% @past_events.each do |event| %>
-										$<%= @current_earnings += event.space.price %></h1>
+											<% @current_earnings += event.space.price %>
 									<% end %>
+									$<%= @current_earnings %>
+									</h1>
 								<small>Earnings to Date</small>
                             </div>
-                            <div class="col-xs-3 text-center">
+                            <div class="col-xs-4 text-center">
                             	<h1><i class="glyphicon glyphicon-star"></i><br>
-                            	<%= truncate(@most_popular_space.name, :length => 6) %> </h1>
+                            	<% if @most_popular_space.present? %>
+                            		<%= truncate(@most_popular_space.name, :length => 6) %> 
+                            	<% else %>
+                            		N/A
+                            	<% end %>
+                            	</h1>
                             	<small>Most Popular Space</small>
                             </div>
-                            <div class="col-xs-3 text-center">
+                            <div class="col-xs-4 text-center">
                             	<h1><i class="glyphicon glyphicon-bullhorn"></i><br>
-                            		<%= @upcoming_events.count %> </h1>
+                            		<% if @upcoming_events.present? %>
+                            		<%= @upcoming_events.count %>
+                            		<% else %>
+                            		N/A
+                            		<% end %></h1>
                             	<small>Upcoming Events</small>
                             	</div>
-                            <div class="col-xs-3 text-center">
-                            	<h1><i class="glyphicon glyphicon-plus"></i><br>hi</h1>
-                            	<small>hsdf</small></div>
+                           
 
                         </div>
                     </div>
@@ -113,7 +124,7 @@
                         <div class="panel-body">
                             <div class="alert alert-info">
                                 <button type="button" class="close" data-dismiss="alert">×</button>
-                                You have x unanswered requests!
+                                You have <%= @requests.unanswered.count %> unanswered requests!
                             </div>
                             <p>	
                             	<table class="table table-hover">
@@ -162,8 +173,12 @@
                     </div>
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <h4>Messages <span class="badge"><% if @unread > 0 %>
-						 <%= @unread %> New
+                            <h4>Messages 
+                            <span class="badge">
+                            <% if @unread > 0 %>
+						 		<%= @unread %> New
+						 	<% else %>
+						 		0 New
 						<% end %> </span></h4></div>
                         <div class="panel-body">
                            
@@ -210,61 +225,8 @@
                         
                         </table>
                     </div>
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <div class="panel-title">
-                                <i class="glyphicon glyphicon-wrench pull-right"></i>
-                                <h4>Post Request</h4>
-                            </div>
-                        </div>
-                        <div class="panel-body">
-                            <form class="form form-vertical">
-                                <div class="control-group">
-                                    <label>Name</label>
-                                    <div class="controls">
-                                        <input type="text" class="form-control" placeholder="Enter Name">
-                                    </div>
-                                </div>
-                                <div class="control-group">
-                                    <label>Message</label>
-                                    <div class="controls">
-                                        <textarea class="form-control"></textarea>
-                                    </div>
-                                </div>
-                                <div class="control-group">
-                                    <label>Category</label>
-                                    <div class="controls">
-                                        <select class="form-control">
-                                            <option>options</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="control-group">
-                                    <label></label>
-                                    <div class="controls">
-                                        <button type="submit" class="btn btn-primary">
-                                            Post
-                                        </button>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                        <!--/panel content-->
-                    </div>
-                    <!--/panel-->
+     
 
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <div class="panel-title">
-                                <h4>Engagement</h4></div>
-                        </div>
-                        <div class="panel-body">
-                            <div class="col-xs-4 text-center"><img src="http://placehold.it/80/BBBBBB/FFF" class="img-circle img-responsive"></div>
-                            <div class="col-xs-4 text-center"><img src="http://placehold.it/80/EFEFEF/555" class="img-circle img-responsive"></div>
-                            <div class="col-xs-4 text-center"><img src="http://placehold.it/80/EEEEEE/222" class="img-circle img-responsive"></div>
-                        </div>
-                    </div>
-                    <!--/panel-->
 
                 </div>
                 <!--/col-span-6-->

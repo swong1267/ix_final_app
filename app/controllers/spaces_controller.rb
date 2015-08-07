@@ -58,6 +58,11 @@ class SpacesController < ApplicationController
 
   end
 
+  def myspaces
+  @spaces = Space.where(user_id: current_user.id).order(created_at: :desc)
+
+  end
+
   def new
     @space = Space.new
   end

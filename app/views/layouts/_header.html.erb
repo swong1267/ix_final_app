@@ -28,11 +28,14 @@
                 <span class="caret"></span>
               </a>
               <ul class="dropdown-menu" aria-labelledby="drop1">
+                <li><%= link_to "My Dashboard", dashboard_profile_path(current_user.profile) %></li>
+                <li role="separator" class="divider"></li>
                 <li><%= link_to "Requests", requests_path %></li>
                 <li><%= link_to "Messages", inbox_messages_path %></li>
+                <li><%= link_to "My Spaces", spaces_myspaces_path %></li>
+                <li><%= link_to "My Events", events_myevents_path %></li>
                 <li><%= link_to "My Profile", profile_path(current_user.profile) %></li>
-                <li role="separator" class="divider"></li>
-                <li><%= link_to "Dashboard", dashboard_profile_path(current_user.profile) %></li>
+
               </ul>
 
           </li>

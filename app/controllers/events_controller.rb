@@ -29,6 +29,11 @@ class EventsController < ApplicationController
 
   end
 
+  def myevents
+    @event = Event.where(user_id: current_user.id).order(created_at: :desc)
+
+  end
+
   def create
     @event = current_user.events.build(event_params)
     if @event.save
