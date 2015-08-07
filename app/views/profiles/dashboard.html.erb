@@ -75,41 +75,37 @@
 
 
                    
-                    <hr>
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <h4>New Requests</h4></div>
-                        <div class="panel-body">
-                            <div class="list-group">
-                                <a href="#" class="list-group-item active">Hosting virtual mailbox serv..</a>
-                                <a href="#" class="list-group-item">Dedicated server doesn't..</a>
-                                <a href="#" class="list-group-item">RHEL 6 install on new..</a>
-                            </div>
-                        </div>
-                    </div>
+                    
                 </div>
                 <!--/col-->
                 <div class="col-md-8">
 
 
-                    <div class="btn-group btn-group-justified">
-                        <a href="#" class="btn btn-primary col-sm-3">
-                            <i class="glyphicon glyphicon-plus"></i>
-                            <br> Earnings to Date
-                        </a>
-                        <a href="#" class="btn btn-primary col-sm-3">
-                            <i class="glyphicon glyphicon-cloud"></i>
-                            <br> Most Popular Space
-                        </a>
-                        <a href="#" class="btn btn-primary col-sm-3">
-                            <i class="glyphicon glyphicon-cog"></i>
-                            <br> Upcoming Events
-                        </a>
-                        <a href="#" class="btn btn-primary col-sm-3">
-                            <i class="glyphicon glyphicon-question-sign"></i>
-                            <br> Help
-                        </a>
-                    </div><br>
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <div class="col-xs-3 text-center">
+                            	<h1><i class="glyphicon glyphicon-signal"></i><br>
+	                            	<% @past_events.each do |event| %>
+										$<%= @current_earnings += event.space.price %></h1>
+									<% end %>
+								<small>Earnings to Date</small>
+                            </div>
+                            <div class="col-xs-3 text-center">
+                            	<h1><i class="glyphicon glyphicon-star"></i><br>
+                            	<%= truncate(@most_popular_space.name, :length => 9) %> </h1>
+                            	<small>Most Popular Space</small>
+                            </div>
+                            <div class="col-xs-3 text-center">
+                            	<h1><i class="glyphicon glyphicon-bullhorn"></i><br>
+                            		<%= @upcoming_events.count %> </h1>
+                            	<small>Upcoming Events</small>
+                            	</div>
+                            <div class="col-xs-3 text-center">
+                            	<h1><i class="glyphicon glyphicon-plus"></i><br>hi</h1>
+                            	<small>hsdf</small></div>
+
+                        </div>
+                    </div>
 
                     <div class="panel panel-default">
                         <div class="panel-heading">
@@ -139,8 +135,8 @@
 				        <td><%= request.body %></td>
 				        <td>
 					        	<% if request.unanswered? %>
-								<%= link_to '<i class="glyphicon glyphicon-ok"></i>'.html_safe, confirm_request_path(request), class: "btn btn-primary btn-sm btn-success" %>
-								<%= link_to '<i class="glyphicon glyphicon-remove"></i>'.html_safe, deny_request_path(request), class: "btn btn-primary btn-danger btn-sm" %>
+								<%= link_to '<i class="glyphicon glyphicon-ok"></i>'.html_safe, confirm_request_path(request), data: { confirm: "Are you sure you want to confirm this request? " }, class: "btn btn-primary btn-sm btn-success" %>
+								<%= link_to '<i class="glyphicon glyphicon-remove"></i>'.html_safe, deny_request_path(request), data: { confirm: "Are you sure you want to deny this request? " }, class: "btn btn-primary btn-danger btn-sm" %>
 								<% elsif request.confirmed? %>
 									<i class="glyphicon glyphicon-ok"></i>
 								<% else %>
